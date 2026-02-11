@@ -1,19 +1,15 @@
 body {
     height: 100%;
     margin: 0;
-    background: linear-gradient(rgb(255, 0, 0), white), linear-gradient(to right, cyan, lime);
+    background: linear-gradient(rgb(255, 0, 0), white, black), linear-gradient(to right, cyan, lime);
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 5em 80vh 15em;
     grid-template-areas: 
         "navigation navigation navigation"
         ". content ."
-        ". footer ."
-    
-        
+        "footer footer footer"
 }
-
-.first-r
 
 button {
     width: 100px;
@@ -47,11 +43,6 @@ header {
 
 footer {
     grid-area: footer;
-    background-color: black;
-}
-
-.footer_side_1, footer_side_2 {
-    grid-area: footer_side;
     background-color: black;
 }
 
