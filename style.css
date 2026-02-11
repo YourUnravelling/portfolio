@@ -1,5 +1,14 @@
 body {
     background: linear-gradient(rgb(255, 0, 0), white), linear-gradient(to right, cyan, lime);
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 5em 100% 15em;
+    grid-template-areas: 
+        "navigation navigation navigation"
+        ". content ."
+        ". footer ."
+    
+        ;
 }
 
 button {
@@ -27,13 +36,18 @@ button:active {
         linear-gradient(rgb(97, 75, 75), white), linear-gradient(to right, rgb(255, 230, 0), lime);
 }
 
-.middle-div {
+header {
     text-align: center;
-    width: fit-content;
+    grid-area: navigation;
 }
 
-.top-bar {
-    display: block;
+footer {
+    grid-area: footer;
+}
+
+.content {
+    grid-area: content;
+    background-color: blue;
 }
 
 .links-grid {
