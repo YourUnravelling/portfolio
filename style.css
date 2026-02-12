@@ -1,8 +1,5 @@
-body {
-    height: 100%;
-    margin: 0;
-    background: 
-
+.pastel-background {
+    background:
         linear-gradient( 0deg,
             rgba(255, 0, 0, 0.5), 
             rgba(255, 255, 0, 0.5),
@@ -18,8 +15,13 @@ body {
             rgb(255, 0, 255, 0.5),
             transparent
             )
+        ;
+}
 
-            ;
+body {
+    height: 100%;
+    margin: 0;
+    background: pink;
     display: grid;
     grid-template-columns: 15% 15% 40% 15% 15%;
     grid-template-rows: 5em 80vh 10em;
