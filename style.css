@@ -20,21 +20,22 @@
         ;
 }
 
-@keyframes Animation { 
+@keyframes PinkAnim { 
     0% {
-        --p-c1: blue;
-        --p-c2: yellow
+        --p-c1: hsla(295, 100%, 84%, 0.7);
+        --p-c2: hsla(313, 100%, 84%, 0.7);
     }
-    50%{
-        --p-c1: green;
-        --p-c2: purple
+    33%{
+        --p-c1: hsla(187, 100%, 84%, 0.7);
+        --p-c2: hsla(263, 100%, 84%, 0.7);
     }
-    75%{
-        --p-c2: pink
+    66%{
+        --p-c1: hsla(253, 100%, 84%, 0.7);
+        --p-c2: hsla(305, 100%, 84%, 0.7);
     }
     100%{
-        --p-c1: blue;
-        --p-c2: yellow
+        --p-c1: hsla(295, 100%, 84%, 0.7);
+        --p-c2: hsla(313, 100%, 84%, 0.7);
     }
 }
 
@@ -51,10 +52,16 @@
 
 .pastel-background-animated {
     background:
+        linear-gradient( 135deg,
+            var(--p-c1),
+            var(--p-c2)
+        ),
         linear-gradient( 90deg,
             var(--p-c1),
-            var(--p-c2));
-        animation: Animation 10s infinite;
+            var(--p-c2)
+        );
+        
+        animation: PinkAnim 10s infinite;
 }
 
 body {
