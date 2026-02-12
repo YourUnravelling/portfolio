@@ -1,3 +1,5 @@
+
+
 .pastel-background {
     background:
         linear-gradient( 0deg,
@@ -16,6 +18,43 @@
             transparent
             )
         ;
+}
+
+@keyframes Animation { 
+    0% {
+        --p-c1: blue;
+        --p-c2: yellow
+    }
+    50%{
+        --p-c1: green;
+        --p-c2: purple
+    }
+    75%{
+        --p-c2: pink
+    }
+    100%{
+        --p-c1: blue;
+        --p-c2: yellow
+    }
+}
+
+@property --p-c1{
+  syntax: '<color>';
+  inherits: false;
+  initial-value: pink;
+}
+@property --p-c2{
+  syntax: '<color>';
+  inherits: false;
+  initial-value: pink;
+}
+
+.pastel-background-animated {
+    background:
+        linear-gradient( 90deg,
+            var(--p-c1),
+            var(--p-c2));
+        animation: Animation 10s infinite;
 }
 
 body {
