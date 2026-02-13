@@ -22,20 +22,24 @@
 
 @keyframes PinkAnim { 
     0% {
-        --p-c1: hsla(295, 100%, 84%, 0.7);
-        --p-c2: hsla(313, 100%, 84%, 0.7);
+        --p-c1: hsla(253, 100%, 70%, 0.7);
+        --p-c2: hsla(187, 100%, 70%, 0.7);
     }
-    33%{
-        --p-c1: hsla(187, 100%, 84%, 0.7);
-        --p-c2: hsla(263, 100%, 84%, 0.7);
+    25%{
+        --p-c1: hsla(187, 100%, 70%, 0.7);
+        --p-c2: hsla(263, 100%, 70%, 0.7);
     }
-    66%{
-        --p-c1: hsla(253, 100%, 84%, 0.7);
-        --p-c2: hsla(305, 100%, 84%, 0.7);
+    50%{
+        --p-c1: hsla(263, 100%, 70%, 0.7);
+        --p-c2: hsla(327, 100%, 70%, 0.7);
     }
-    100%{
-        --p-c1: hsla(295, 100%, 84%, 0.7);
-        --p-c2: hsla(313, 100%, 84%, 0.7);
+    75%{
+        --p-c1: hsla(327, 100%, 70%, 0.7);
+        --p-c2: hsla(253, 100%, 70%, 0.7);
+    }
+    100% {
+        --p-c1: hsla(253, 100%, 70%, 0.7);
+        --p-c2: hsla(187, 100%, 70%, 0.7);
     }
 }
 
@@ -56,11 +60,10 @@
             var(--p-c1),
             var(--p-c2)
         ),
-        linear-gradient( 90deg,
+        linear-gradient( 200deg,
             var(--p-c1),
             var(--p-c2)
         );
-        
         animation: PinkAnim 10s infinite;
 }
 
@@ -167,6 +170,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
     transform: translateY(0px);
 }
 
-.project-button {
-    display: contents;
+.projects-grid > summary:enabled {
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.774);
+    transform: translateY(0px);
 }
