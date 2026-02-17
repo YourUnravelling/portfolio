@@ -1,0 +1,23 @@
+button {
+    width: 100px;
+    border: 10px solid transparent;
+    border-radius: 20px;
+    border-style: solid;
+    background-image: 
+        linear-gradient(rgb(255, 0, 0), white), linear-gradient(to right, cyan, lime);
+    
+    margin: 10px;
+    padding: 10px;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+button:hover {
+    background-image: 
+        linear-gradient(rgb(97, 75, 75), white), linear-gradient(to right, cyan, lime);
+}
+
+button:active {
+    background-image: 
+        linear-gradient(rgb(97, 75, 75), white), linear-gradient(to right, rgb(255, 230, 0), lime);
+}
