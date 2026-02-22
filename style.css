@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+* {
+    color: rgb(255, 255, 255);
+    font-family: "Fira Sans", sans-serif;
+}
 
 .pastel-background {
     background:
@@ -80,29 +86,31 @@ body {
         ". footer footer footer ."
 }
 
+
 button {
     width: 100px;
+    color: rgb(0, 0, 0);
+    font-size: medium;
     border: 5px solid transparent;
     border-radius: 20px;
     border-style: solid;
-    background-image: 
-        linear-gradient(rgb(255, 165, 243), rgb(255, 255, 255), rgb(172, 252, 255)), linear-gradient(to right, cyan, lime);
+    background-color: rgba(255, 183, 226, 0.596);
     border-color: white;
     margin: 10px;
     padding: 10px;
   background-origin: border-box;
   background-clip: padding-box, border-box;
     cursor: pointer;
-    transition: border-color 0.5s;
+    mix-blend-mode: overlay;
+    transition: background-color 0.5s, border-color 0.5s;
 }
+
 button:hover {
-    background-image: 
-        linear-gradient(rgb(97, 75, 75), white), linear-gradient(to right, cyan, lime);
-    border-color: black;
+    background-color: rgba(255, 255, 255, 0.459);
+    border-color: rgba(255, 220, 241, 1);
 }
 button:active {
-    background-image: 
-        linear-gradient(rgb(97, 75, 75), white), linear-gradient(to right, rgb(255, 230, 0), lime);
+    background-color: rgba(214, 191, 255, 0.596);
 }
 
 header {
