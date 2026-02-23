@@ -217,12 +217,13 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 .document .language {
+    align-content: right;
     color: white;
-    padding-left: 0.8em;
+    padding-left: 0.9em;
     background-color: grey;
     display: inline-block;
-    margin-left: 2rem;
-    --p: 10px;
+    margin-left: 1rem;
+    --p: 12px;
     clip-path: polygon(var(--p) 0,calc(100% - var(--p)) 0,100% 100%,0 100%);
     min-width: 75px;
 }
