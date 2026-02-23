@@ -210,7 +210,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
     margin-top: 0rem; /* To fit the language indicator */
     font-family: "Ubuntu mono", sans-serif;
     color: #303030;
-    padding: 2px;
+    padding: 5px;
     border: 2px solid grey;
     border-left: 5px solid grey;
     
@@ -219,17 +219,28 @@ This should adapt to the size of the page, up to a point where they stop botheri
 .document .language {
     align-content: right;
     color: white;
-    padding-left: 0.9em;
+    padding: 1px 0.9em 1px 0.9em;
     background-color: grey;
     display: inline-block;
-    margin-left: 1rem;
+    margin: 1rem 0 0 1rem;
     --p: 12px;
     clip-path: polygon(var(--p) 0,calc(100% - var(--p)) 0,100% 100%,0 100%);
-    min-width: 75px;
 }
 /* https://css-shape.com/trapezoid/ */
 
 .document > h1 {
     font-size: 4rem;
     text-align: center;
+}
+
+.document > h2 {
+    font-size: 2rem;
+}
+
+.document > h3 {
+    font-size: 1.75em;
+}
+
+.document > h4 {
+    font-size: 1.5em;
 }
