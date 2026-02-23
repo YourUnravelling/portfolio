@@ -213,7 +213,11 @@ This should adapt to the size of the page, up to a point where they stop botheri
     padding: 5px;
     border: 2px solid grey;
     border-left: 5px solid grey;
-    
+    transition: background-color 0.5s;
+}
+
+.document code:hover {
+    background-color: rgb(230, 230, 230);
 }
 
 .document .language {
