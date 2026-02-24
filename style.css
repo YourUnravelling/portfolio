@@ -328,13 +328,24 @@ This should adapt to the size of the page, up to a point where they stop botheri
     font-size: 1.5em;
 }
 
+
+@media screen and (max-width: 790px) {
+    body {
+    grid-template-columns: 0 0 100% 0 0;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    nav {
+        display: none !important
+    };
+    
+}
+
 @media only screen and (max-width: 550px) {
     .document {
         margin-left: 0px;
         margin-right: 0px;
-    }
-    body {
-    grid-template-columns: 0 0 100% 0 0;
     }
     
 }
