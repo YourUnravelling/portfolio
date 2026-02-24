@@ -91,7 +91,8 @@ header {
 
 .header-bar {
     display: flex;
-    justify-content: flex-end;
+    overflow: hidden;
+    justify-content: flex-start;
     align-items: stretch;
     margin: 0.8em;
     --h: 4em;
@@ -110,12 +111,17 @@ header {
     height: 4em;
 }
 
+.autumn-icon {
+    padding: 1.4em 2em !important;
+    color:grey;
+    font-weight: bold;
+}
+
+/*TODO: Make it so when hovered, the button backgrounds become semi-transparent, the text possibly animating with a flash of white like a streak along it idk*/
 .header-bar a {
     height: 4em;
     color: black;
     text-align: center;
-    justify-self: center;
-    align-items: center;
     box-sizing: border-box;
     --tp: 1.4em;
     padding: var(--tp) 0.5em var(--tp) 0.5em;
@@ -133,11 +139,17 @@ header {
     min-width: 4em;
     text-align: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 4em;
 }
 .header-bar .circ:hover {
     background-color: rgb(116, 116, 116);
     color: white;
+}
+
+
+
+.right-aligned {
+    margin-right: auto;
 }
 
 
