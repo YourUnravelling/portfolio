@@ -4,6 +4,10 @@
     font-family: "Ubuntu", sans-serif;
 }
 
+*::selection {
+    background-color: rgb(82, 255, 255);
+}
+
 .pastel-background {
     background:
         linear-gradient( 0deg,
@@ -50,7 +54,7 @@
 @property --p-c1{
   syntax: '<color>';
   inherits: false;
-  initial-value: pink;
+  initial-value: rgb(0, 0, 0);
 }
 @property --p-c2{
   syntax: '<color>';
@@ -111,20 +115,15 @@ header {
     height: 4em;
 }
 
-.autumn-icon {
-    padding: 1.4em 2em !important;
-    color:grey;
-    font-weight: bold;
-}
 
 /*TODO: Make it so when hovered, the button backgrounds become semi-transparent, the text possibly animating with a flash of white like a streak along it idk*/
 .header-bar a {
-    height: 4em;
+    height: 4rem;
     color: black;
     text-align: center;
     box-sizing: border-box;
-    --tp: 1.4em;
-    padding: var(--tp) 0.5em var(--tp) 0.5em;
+    --tp: 1.4rem;
+    padding: var(--tp) 0.5em var(--tp) 0.5rem;
     font-size: medium;
     text-decoration: none;
     user-select: none;
@@ -136,17 +135,17 @@ header {
 }
 
 .circ-left, .circ-right {
-    min-width: 4em;
+    min-width: 4rem;
     text-align: center;
     justify-content: center;
 }
 
 .header-bar .circ-left {
-    border-radius: 0 4em 4em 0;
+    border-radius: 0 4rem 4rem 0;
 }
 
 .header-bar .circ-right {
-    border-radius: 4em 0 0 4em;
+    border-radius: 4rem 0 0 4rem;
 }
 
 .header-bar .circ:hover {
@@ -156,6 +155,25 @@ header {
 
 .right-aligned {
     margin-right: auto;
+}
+
+.autumn-icon {
+    padding: 1.3rem 2rem !important;
+    color:rgb(153, 153, 153) !important;
+    font-weight: bold;
+    font-size: large !important;
+    transition: background-color 0.5s, color 0.5s !important;
+}
+.autumn-icon:hover {
+    color: rgb(255, 98, 125) !important;
+}
+
+.mobile-nav-icon {
+
+}
+
+.mobile-nav-icon:hover {
+    background-color: #303030 !important;
 }
 
 
