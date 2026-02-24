@@ -135,18 +135,24 @@ header {
     background-color: rgb(211, 211, 211);
 }
 
-.header-bar .circ {
+.circ-left, .circ-right {
     min-width: 4em;
     text-align: center;
     justify-content: center;
-    border-radius: 4em;
 }
+
+.header-bar .circ-left {
+    border-radius: 0 4em 4em 0;
+}
+
+.header-bar .circ-right {
+    border-radius: 4em 0 0 4em;
+}
+
 .header-bar .circ:hover {
     background-color: rgb(116, 116, 116);
     color: white;
 }
-
-
 
 .right-aligned {
     margin-right: auto;
