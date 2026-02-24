@@ -169,11 +169,35 @@ header {
 }
 
 .mobile-nav-icon {
-
+    margin-left: 1rem;
 }
 
 .mobile-nav-icon:hover {
     background-color: #303030 !important;
+}
+
+.hamburger {
+    align-self: center;
+    width: 1rem;
+    height: 1rem;
+    background-color: black;
+    clip-path: polygon(
+        0%      0%   ,
+        100%    0%   ,
+        100%    20%  ,
+        0%      20%  ,
+
+        0%      40%  ,
+        100%    40%  ,
+        100%    60%  ,
+        0%      60%  ,
+
+        0%      80%  ,
+        100%    80%  ,
+        100%    100% ,
+        0%      100% 
+
+    );
 }
 
 
