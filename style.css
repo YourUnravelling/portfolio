@@ -9,16 +9,22 @@
 }
 
 .no-js-warning {
-    padding-top: 1.5em;
-    color: #ffffff;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 0.5rem;
+    min-height: 3.5rem !important;
+    color: #000000;
     animation: noJsFadeIn 2s 1;
 }
 @keyframes noJsFadeIn { 
     0% {
-        color: hsla(0, 0%, 100%, 0);
+        color: hsla(0, 0%, 0%, 0);
+    }
+    50% {
+        color: hsla(0, 0%, 0%, 0);
     }
     100%{
-        color: hsl(0, 0%, 100%);
+        color: hsl(0, 0%, 0%);
     }
 }
 
@@ -95,7 +101,7 @@ body {
     background: pink;
     display: grid;
     grid-template-columns: 10% 5% 70% 5% 10%;
-    grid-template-rows: 5em 80vh 10em;
+    grid-template-rows: 5rem 80vh 10rem;
     grid-template-areas: 
         ". navigation navigation navigation ."
         ". . content . ."
@@ -108,17 +114,17 @@ header {
 }
 
 /*TODO Make the header bar follow the screen, with a shadow when its not at the top*/
-.header-bar {
+.header-bar, .no-js-warning {
     position: sticky;
     display: flex;
     overflow: hidden;
     justify-content: flex-start;
     align-items: stretch;
     margin: 0.8em;
-    --h: 4em;
-    min-height: 4em;
-    max-height: 4em;
-    border-radius: 2em;
+    --h: 4rem;
+    min-height: 4rem;
+    max-height: 4rem;
+    border-radius: 2rem;
     background-color: white;
 }
 
@@ -128,7 +134,7 @@ header {
 
 .header-bar > * {
     display: flex;
-    height: 4em;
+    height: 4rem;
 }
 
 
@@ -139,7 +145,7 @@ header {
     text-align: center;
     box-sizing: border-box;
     --tp: 1.4rem;
-    padding: var(--tp) 0.5em var(--tp) 0.5rem;
+    padding: var(--tp) 0.5rem var(--tp) 0.5rem;
     font-size: medium;
     text-decoration: none;
     user-select: none;
@@ -349,6 +355,13 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 
+@media screen and (max-width: 1150px) {
+    .no-js-warning {
+    font-size: 0.8rem;
+    }
+}
+
+
 @media screen and (max-width: 790px) {
     body {
     grid-template-columns: 0 0 100% 0 0;
@@ -366,6 +379,9 @@ This should adapt to the size of the page, up to a point where they stop botheri
     .document {
         margin-left: 0px;
         margin-right: 0px;
+    }
+    .no-js-warning {
+    font-size: 0.7rem;
     }
     
 }
