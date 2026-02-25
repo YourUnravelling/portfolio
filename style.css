@@ -93,7 +93,9 @@ header {
     grid-area: navigation;
 }
 
+/*TODO Make the header bar follow the screen, with a shadow when its not at the top*/
 .header-bar {
+    position: sticky;
     display: flex;
     overflow: hidden;
     justify-content: flex-start;
