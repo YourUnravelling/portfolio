@@ -1,8 +1,21 @@
 const codeSnippets = {
 clip_path: `
-Line 1
-    Line 2 with indentation
-    Line 3 with indentation
+clip-path: polygon(
+    0%      0%   ,
+    100%    0%   ,
+    100%    var(--w),
+    0%      var(--w),
+
+    0%      calc(50% - calc(var(--w)) / 2),
+    100%    calc(50% - calc(var(--w)) / 2),
+    100%    calc(50% + calc(var(--w)) / 2),
+    0%      calc(50% + calc(var(--w)) / 2),
+
+    0%      calc(100% - var(--w)),
+    100%    calc(100% - var(--w)),
+    100%    100% ,
+    0%      100% 
+);
 `,
 }
 
@@ -26,13 +39,22 @@ function addCodeSnippets() {
         //const fileContents = reader.result;
         const lines = snippet.split("\n")
 
+        // Remove text in the code element that's there already
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+
         lines.forEach(line => {
-            const newElement = document.createElement("div");
+            if (line.startsWith("    ")) {
+                // Something here that indents the code
+            }
+
+            const newElement = document.createElement("span");
             const newContent = document.createTextNode(line);
 
             newElement.appendChild(newContent);
 
-            document.body.appendChild(newElement);
+            element.appendChild(newElement);
         })
 
     });

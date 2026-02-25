@@ -286,19 +286,23 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 .document code {
-    display: flex;
+    display: grid;
     margin: 1rem;
     margin-top: 0rem; /* To fit the language indicator */
-    font-family: "Ubuntu mono", sans-serif;
-    color: #303030;
+    color: #ff0000 !important;
     padding: 5px;
     border: 2px solid grey;
     border-left: 5px solid grey;
     transition: background-color 0.5s;
 }
-
 .document code:hover {
     background-color: rgb(230, 230, 230);
+}
+
+.document code span, .document code {
+    white-space: pre-wrap;
+    font-family: "Ubuntu mono", sans-serif;
+    color: #303030;
 }
 
 .document .language {
