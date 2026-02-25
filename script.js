@@ -19,8 +19,23 @@ clip-path: polygon(
 `,
 }
 
-window.onload = function() { addCodeSnippets(); };
+window.onload = function() { 
+    addCodeSnippets(); 
+    addHeader()
+};
 
+function addHeader() {
+    //("#heading-placeholder").load("header.html")
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "html_resources/header.html", true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText)
+            document.getElementById("heading-root").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+}
 
 function addCodeSnippets() {
     const elements = document.querySelectorAll('.code-snip');
