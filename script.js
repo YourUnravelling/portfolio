@@ -74,3 +74,7 @@ function addCodeSnippets() {
 
     });
 }
+
+function openMenu() {
+    
+}

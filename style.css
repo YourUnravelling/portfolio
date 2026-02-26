@@ -9,8 +9,7 @@
 }
 
 .no-js-warning {
-    padding-left: 20%;
-    padding-right: 20%;
+    justify-content: center;
     padding-top: 0.5rem;
     min-height: 3.5rem !important;
     color: #000000;
@@ -103,7 +102,7 @@ body {
     grid-template-columns: 10% 5% 70% 5% 10%;
     grid-template-rows: 5rem 80vh 10rem;
     grid-template-areas: 
-        ". navigation navigation navigation ."
+        "navigation navigation navigation navigation navigation"
         ". . content . ."
         ". footer footer footer ."
 }
@@ -115,18 +114,23 @@ header {
 
 /*TODO Make the header bar follow the screen, with a shadow when its not at the top*/
 .header-bar, .no-js-warning {
-    position: sticky;
+    position: fixed;
+    min-width: 60%;
     display: flex;
     overflow: hidden;
-    justify-content: flex-start;
     align-items: stretch;
-    margin: 0.8em;
+    margin: 0.8rem 20% ;
     --h: 4rem;
     min-height: 4rem;
     max-height: 4rem;
     border-radius: 2rem;
     background-color: white;
 }
+
+.header-bar {
+    justify-content: flex-start;
+}
+
 
 .header-bar * {
     color: black;
@@ -361,6 +365,12 @@ This should adapt to the size of the page, up to a point where they stop botheri
     }
 }
 
+@media screen and (max-width: 1050px) {
+    .header-bar, .no-js-warning {
+        margin: 0.8rem 10% ;
+        min-width: 80%;
+    }
+}
 
 @media screen and (max-width: 790px) {
     body {
@@ -372,7 +382,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
     }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 750px) {
     nav {
         display: none !important
     };
@@ -382,6 +392,10 @@ This should adapt to the size of the page, up to a point where they stop botheri
 @media only screen and (max-width: 550px) {
     .no-js-warning {
     font-size: 0.7rem;
+    }
+    .header-bar, .no-js-warning {
+        margin: 0.8rem;
+        min-width: calc(100% - 1.6rem);
     }
     
 }
