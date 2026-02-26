@@ -116,7 +116,6 @@ header {
 .header-bar, .no-js-warning {
     position: fixed;
     min-width: 60%;
-    display: flex;
     z-index: 2;
     overflow: hidden;
     align-items: stretch;
@@ -126,11 +125,24 @@ header {
     max-height: 4rem;
     border-radius: 2rem;
     background-color: white;
-    transition: min-height 0.3s ease-out;
+    transition: 
+        min-height 0.3s ease-out, 
+        min-width 0.2s ease-out, /*TODO Decide if this smooth reactiveness is good or not*/
+        margin 0.2s ease-out;
 }
 
 .header-bar {
     justify-content: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-rows: 4rem auto;
+    grid-template-areas: 
+        "autumn-icon . nav hamburger"
+        ". . . ."
+}
+
+.header-bar > nav {
+    grid-area: nav;
 }
 
 .header-bar.open {
@@ -199,6 +211,7 @@ header {
     font-weight: bold;
     font-size: large !important;
     transition: background-color 0.5s, color 0.5s !important;
+    grid-area: autumn-icon;
 }
 .autumn-icon:hover {
     color: rgb(255, 98, 125) !important;
@@ -206,10 +219,15 @@ header {
 
 .mobile-nav-icon {
     margin-left: 1rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-nav-icon:hover {
     background-color: #303030 !important;
+    grid-area: hamburger;
 }
 
 .hamburger {
@@ -393,10 +411,17 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 @media only screen and (max-width: 750px) {
-    nav {
-        display: none !important
-    };
-    
+    .header-bar {
+        grid-template-areas: 
+            "autumn-icon . . hamburger"
+            "nav nav . . "
+    }
+    .header-bar > nav {
+        display: grid;
+    }
+    .header-bar > nav > a {
+        display: grid;
+    }
 }
 
 @media only screen and (max-width: 550px) {
