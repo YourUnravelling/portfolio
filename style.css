@@ -125,12 +125,17 @@ header {
     max-height: 4rem;
     border-radius: 2rem;
     background-color: white;
+    transition: min-height 0.3s ease-out;
 }
 
 .header-bar {
     justify-content: flex-start;
 }
 
+.header-bar.open {
+    background-color: rgb(255, 255, 255);
+    min-height: calc(100% - 1.6rem);
+}
 
 .header-bar * {
     color: black;
@@ -396,6 +401,17 @@ This should adapt to the size of the page, up to a point where they stop botheri
     .header-bar, .no-js-warning {
         margin: 0.8rem;
         min-width: calc(100% - 1.6rem);
+    }
+    
+}
+
+@media only screen and (max-width: 320px) {
+    .autumn-icon {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .mobile-nav-icon {
+        margin-left: 0px;
     }
     
 }

@@ -20,9 +20,18 @@ clip-path: polygon(
 }
 
 window.onload = function() { 
-    addCodeSnippets(); 
-    addHeader()
+    addHeader();
+
+    addCodeSnippets()
+    
 };
+
+function initialiseButton() {
+    document.getElementById("hamburger-button").addEventListener('click', function() {
+
+        document.getElementById('header-bar').classList.toggle('open');
+    });
+}
 
 function addHeader() {
     //("#heading-placeholder").load("header.html")
@@ -32,6 +41,9 @@ function addHeader() {
         if (xhr.status === 200) {
             console.log(xhr.responseText)
             document.getElementById("heading-root").innerHTML = xhr.responseText;
+            
+            // Initialise the button here after the html has fully loaded
+            initialiseButton();
         }
     };
     xhr.send();
