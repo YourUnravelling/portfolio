@@ -135,9 +135,10 @@ header {
     justify-content: flex-start;
     display: grid;
     grid-template-columns: auto 1fr auto auto;
-    grid-template-rows: 4rem auto;
+    grid-template-rows: 4rem 2rem auto;
     grid-template-areas: 
         "autumn-icon . nav hamburger"
+        ". . . ."
         ". . . ."
 }
 
@@ -148,6 +149,15 @@ header {
 .header-bar.open {
     background-color: rgb(255, 255, 255);
     min-height: calc(100% - 1.6rem);
+}
+
+.header-bar > .spacer {
+    display: none;
+    height: 4px;
+    background-color: #dadada;
+    margin: calc(1rem - 2px) 1rem;
+    border-radius: 2px;
+    grid-area: spacer;
 }
 
 .header-bar * {
@@ -413,14 +423,18 @@ This should adapt to the size of the page, up to a point where they stop botheri
 @media only screen and (max-width: 750px) {
     .header-bar {
         grid-template-areas: 
-            "autumn-icon . . hamburger"
-            "nav nav . . "
+            "autumn-icon .   . hamburger"
+            "spacer spacer spacer spacer"
+            "nav         nav . .        "
+    }
+    .header-bar > .spacer {
+        display: flex !important;
     }
     .header-bar > nav {
         display: grid;
     }
     .header-bar > nav > a {
-        display: grid;
+        border-radius: 0 2rem 2rem 0 ;
     }
 }
 
