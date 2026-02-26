@@ -364,7 +364,11 @@ This should adapt to the size of the page, up to a point where they stop botheri
 
 @media screen and (max-width: 790px) {
     body {
-    grid-template-columns: 0 0 100% 0 0;
+    grid-template-columns: 3% 0 94% 0 3%;
+    }
+    .document {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -376,10 +380,6 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 @media only screen and (max-width: 550px) {
-    .document {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
     .no-js-warning {
     font-size: 0.7rem;
     }
