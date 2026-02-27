@@ -103,16 +103,17 @@
 }
 
 body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     background: pink;
     display: grid;
-    grid-template-columns: 10% 5% 70% 5% 10%;
-    grid-template-rows: 5rem 80vh 10rem;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 6rem 1fr 6rem;
     grid-template-areas: 
-        "navigation navigation navigation navigation navigation"
-        ". . content . ."
-        ". footer footer footer ."
+        " navigation navigation navigation "
+        " . content . "
+        " footer footer footer ";
+    transition: grid-template-columns 0.2s ease-out;
 }
 
 header {
@@ -127,16 +128,28 @@ header {
     z-index: 2;
     overflow: hidden;
     align-items: stretch;
-    margin: 0.8rem 20% ;
-    --h: 4rem;
-    min-height: 4rem;
-    max-height: 4rem;
-    border-radius: 2rem;
     background-color: white;
+}
+
+.header-bar, .footer-bar {
     transition: 
         min-height 0.3s ease-out, 
         min-width 0.2s ease-out, /*TODO Decide if this smooth reactiveness is good or not*/
         margin 0.2s ease-out;
+
+
+}
+
+.header-bar, .footer-bar, .no-js-warning {
+    border-radius: 2em;
+    margin: 0.8rem 20%;
+    min-width: 60%;
+    min-height: 4rem;
+    max-height: 4rem;
+}
+
+.footer-bar {
+    background-color: #000000;
 }
 
 .header-bar {
@@ -305,12 +318,20 @@ header {
 
 footer {
     grid-area: footer;
-    background-color: black;
-    border-radius: 2em;
-    margin: 3em;
-    padding: 1em;
+
     text-align: center;
     color: white;
+}
+
+.footer-bg {
+    position: fixed;
+    --h: 8rem;
+    top: calc(100vh - var(--h));
+    width: 100vw;
+    height: var(--h);
+    background: linear-gradient(
+        #ffffff00, #00000049
+    );
 }
 
 main {
@@ -443,7 +464,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 @media screen and (max-width: 1050px) {
-    .header-bar, .no-js-warning {
+    .header-bar, .footer-bar, .no-js-warning {
         margin: 0.8rem 10% ;
         min-width: 80%;
     }
@@ -451,7 +472,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
 
 @media screen and (max-width: 790px) {
     body {
-    grid-template-columns: 0.8rem 0 calc(100% - 1.6rem) 0 0.8rem;
+    grid-template-columns: 0.8rem calc(100% - 1.6rem) 0.8rem;
     }
     .document {
         padding-left: 1rem;
@@ -484,7 +505,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
     .no-js-warning {
     font-size: 0.7rem;
     }
-    .header-bar, .no-js-warning {
+    .header-bar, .footer-bar, .no-js-warning {
         margin: 0.8rem;
         min-width: calc(100% - 1.6rem);
     }
