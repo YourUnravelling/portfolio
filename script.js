@@ -53,33 +53,41 @@ function addCodeSnippets() {
     const elements = document.querySelectorAll('.code-snip');
     elements.forEach(element => {
         const textNode = element.firstChild
-        const snippetName = textNode.textContent //getAttribute("snippet-name")
+        const TextContentArray = textNode.textContent.split(" ") //getAttribute("snippet-name")
 
-        console.log(textNode)
-        console.log(snippetName)
+        const language = TextContentArray[0]
+        const snippetName = TextContentArray[1]
 
+        if (TextContentArray.length != 2) {
+            textNode.textContent = "Error, Invalid text node (this should never happen)"
+            return
+        }
+
+        const languageElement = document.createElement("div");
+        languageElement.classList.add('language')
+        const languageContent = document.createTextNode(language);
+        languageElement.appendChild(languageContent);
+
+        element.parentElement.insertBefore(languageElement, element);
 
 
         snippet = codeSnippets[snippetName]
 
         if (snippet == null) {
-            console.log(snippetName)
+            console.log(snippetName);
+            textNode.textContent = "Error, snippet not found (this should never happen)"
+            return
         }
-
-
-        //const fileContents = reader.result;
-        const lines = snippet.split("\n")
 
         // Remove text in the code element that's there already
         while (element.firstChild) {
             element.removeChild(element.firstChild);
         }
 
-        lines.forEach(line => {
-            if (line.startsWith("    ")) {
-                // Something here that indents the code
-            }
+        // Split the snippet into lines
+        const lines = snippet.split("\n")
 
+        lines.forEach(line => {
             const newElement = document.createElement("span");
             const newContent = document.createTextNode(line);
 
