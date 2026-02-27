@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="resources/favicon.png" type="image/x-icon">
+    <script src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -20,7 +21,7 @@
         
         <div class="panel">
             <form action="mailto:conneljmh@hotmail.com" method="get">
-                <select name="communicationType">
+                <select name="communicationType" id="communicationType">
                     <option value="1">Praise</option>
                     <option value="1">Complaint</option>
                     <option value="2">Sexual advance</option>
@@ -30,7 +31,8 @@
                 <label for="email">Email</label>
                 <input name="email" id="email" type="email" required>
 
-                <input type="checkbox"> High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</input>
+                <label for="high-velocity">High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</label>
+                <input type="checkbox" id="high-velocity"> 
                 <input type="button" value="Submit">
             </form>
         </div>
