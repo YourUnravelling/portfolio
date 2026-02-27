@@ -52,7 +52,11 @@ function addHeader() {
 function addCodeSnippets() {
     const elements = document.querySelectorAll('.code-snip');
     elements.forEach(element => {
-        const snippetName = element.getAttribute("snippet-name")
+        const textNode = element.firstChild
+        const snippetName = textNode.textContent //getAttribute("snippet-name")
+
+        console.log(textNode)
+        console.log(snippetName)
 
 
 
