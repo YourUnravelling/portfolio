@@ -108,7 +108,7 @@ body {
     background: pink;
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 6rem 1fr 6rem;
+    grid-template-rows: 5.6rem 1fr 5.6rem;
     grid-template-areas: 
         " navigation navigation navigation "
         " . content . "
