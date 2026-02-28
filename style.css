@@ -131,13 +131,16 @@ header {
     background-color: white;
 }
 
+.scroll-shadow, .header-bar.open {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.349);
+}
+
 .header-bar, .footer-bar {
     transition: 
         min-height 0.3s ease-out, 
         min-width 0.2s ease-out, /*TODO Decide if this smooth reactiveness is good or not*/
-        margin 0.2s ease-out;
-
-
+        margin 0.2s ease-out,
+        box-shadow 0.2s ease-out;
 }
 
 .header-bar, .footer-bar, .no-js-warning {
@@ -324,14 +327,15 @@ footer {
 }
 
 .footer-bg {
-    position: fixed;
+    position: relative;
     --h: 8rem;
-    top: calc(100vh - var(--h));
+    top: calc(0px - var(--h));
     width: 100vw;
     height: var(--h);
     background: linear-gradient(
         #ffffff00, #00000049
     );
+    z-index: -1;
 }
 
 main {

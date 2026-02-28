@@ -33,6 +33,22 @@ function initialiseButton() {
     });
 }
 
+function checkScrollForShadow() {
+    // This function is seperate so it can be called on initialisation as well as on scrolling, so that refreshing the page doesn't remove the shadow 
+    if (window.scrollY > 0) {
+        document.getElementById('header-bar').classList.add('scroll-shadow');
+    } else {
+        document.getElementById('header-bar').classList.remove('scroll-shadow');
+    }
+}
+
+function initialiseShadow() {
+    window.addEventListener("scroll", function() {
+        checkScrollForShadow()
+    });
+    checkScrollForShadow()
+}
+
 function addHeader() {
     //("#heading-placeholder").load("header.html")
     var xhr = new XMLHttpRequest();
@@ -44,6 +60,8 @@ function addHeader() {
             
             // Initialise the button here after the html has fully loaded
             initialiseButton();
+
+            initialiseShadow();
         }
     };
     xhr.send();
