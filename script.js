@@ -18,11 +18,26 @@ clip-path: polygon(
 );
 `,
 }
+const projectOrder = [
+    "sqlite_bookstore",
+    "portfolio",
+]
+const projects = {
+    sqlite_bookstore: {
+        displayName: "Generalised SQLite Viewer",
+        color: "#9cb5b6",
+        textIsDark: true,
+        date: "2026-02-04",
+        previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
+        languages: ["python", "sqlite"]
+    },
+}
 
-window.onload = function() { 
+window.onload = function() {
     addHeader();
 
     addCodeSnippets()
+    populateProjectsGrid()
     
 };
 
@@ -55,16 +70,38 @@ function addHeader() {
     xhr.open("GET", "html_resources/header.html", true);
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log(xhr.responseText)
             document.getElementById("heading-root").innerHTML = xhr.responseText;
             
             // Initialise the button here after the html has fully loaded
             initialiseButton();
 
             initialiseShadow();
+            populateProjectsGrid()
         }
     };
     xhr.send();
+}
+
+function populateProjectsGrid() {
+    const elements = document.querySelectorAll('.projects-grid');
+
+    // There should only ever be one projects-grid but this is a good way to target it
+    elements.forEach(element => {
+        projectOrder.forEach(projectName => {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "html_resources/project-summary.html", true);
+            xhr.onload = function() {
+                console.log(xhr.status)
+                if (xhr.status === 200) {
+                    element.innerHTML += xhr.responseText
+                    
+
+                }
+            }
+            xhr.send();
+        })
+        
+    })
 }
 
 function addCodeSnippets() {
