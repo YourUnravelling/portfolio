@@ -29,6 +29,16 @@ const projects = {
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
+        previewImage: "egg.png",
+        languages: ["python", "sqlite"]
+    },
+    portfolio: {
+        displayName: "Portfolio Website",
+        color: "#9ddbff",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "This site",
+        previewImage: "egg.png",
         languages: ["python", "sqlite"]
     },
 }
@@ -76,32 +86,71 @@ function addHeader() {
             initialiseButton();
 
             initialiseShadow();
-            populateProjectsGrid()
         }
     };
     xhr.send();
 }
 
 function populateProjectsGrid() {
-    const elements = document.querySelectorAll('.projects-grid');
 
-    // There should only ever be one projects-grid but this is a good way to target it
-    elements.forEach(element => {
-        projectOrder.forEach(projectName => {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "html_resources/project-summary.html", true);
-            xhr.onload = function() {
-                console.log(xhr.status)
-                if (xhr.status === 200) {
-                    element.innerHTML += xhr.responseText
+    // Only get the project summary html once
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "html_resources/project-summary.html", true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            projectSummaryTemplateText = xhr.responseText
+
+            // There should only ever be one projects-grid but this is a good way to target it
+            const elements = document.querySelectorAll('.projects-grid');
+            console.log(elements)
+            elements.forEach(element => {
+                // Remove all innerhtml
+                element.innerHTML = ""
+                
+
+                projectOrder.forEach((projectName, index) => {
+                    thisProject = projects[projectName]
+
+                    console.log(projectName, thisProject)
+
+                    element.innerHTML += projectSummaryTemplateText
+
+                    console.log(element.children[index].children[0])
+
+                    element.children[index].style["--c"] = thisProject.color;
+                    element.children[index].children[0].style.setProperty("--i", thisProject.previewImage);
+                    element.children[index].children[0].style.setProperty("--c", thisProject.color);
+
+                    element.children[index].children[0].children[0].innerHTML = thisProject.displayName
+                    
+                    thisProject.languages.forEach(language => {
+                        // Create an img element and apply attributes
+                        const languageImageElement = document.createElement("img")
+                        languageImageElement.src = "resources/languages/" + language +".png"
+                        languageImageElement.alt = language
+                        languageImageElement.title = language
+
+                        element.children[index].children[0].children[1].appendChild(languageImageElement)
+
+                    })
+
+                    element.children[index].children[1].children[0].innerHTML = thisProject.previewDescription
+
+                    // const projectSummaryText = xhr.responseText
+                    // const projectSummary = (new  DOMParser()).parseFromString(projectSummaryText, "text/html");
+                    // console.log(typeof(projectSummary))
+                    // 
+                    // projectSummary.children[0]
+
+                    //element.appendChild(projectSummary)
                     
 
-                }
-            }
-            xhr.send();
-        })
-        
-    })
+                })
+            })
+            
+        }
+    }
+    xhr.send();
 }
 
 function addCodeSnippets() {
