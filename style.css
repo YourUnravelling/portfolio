@@ -400,10 +400,10 @@ This should adapt to the size of the page, up to a point where they stop botheri
 }
 
 .project-summary > .bg > label {
-    display: block;
-    font-size: larger;
-    justify-self: end;
-    margin: 140px 1rem
+    position: relative;
+    font-size: 1.3rem;
+    top: calc(100% - 1.1rem);
+    left: 0.35rem;
 }
 
 .project-summary > .info {
@@ -417,15 +417,20 @@ This should adapt to the size of the page, up to a point where they stop botheri
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0px;
 }
 
-.project-summary > .info > .language-icons {
-    width: 40px;
+.project-summary > .bg > .language-icons {
+    position: relative;
+    --h: 30px;
+    top: calc(100% - var(--h));
+    margin: 10px;
     float: inline-end;
 }
 
-.project-summary > .info > .language-icons > img {
-    width: 40px
+.project-summary > .bg > .language-icons > img {
+    max-width: 30px;
+    max-height: 30px;
 }
 
 .document {
