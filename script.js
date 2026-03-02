@@ -29,7 +29,7 @@ const projects = {
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
-        previewImage: "egg.png",
+        previewImage: "image.png",
         languages: ["python", "sqlite"]
     },
     portfolio: {
@@ -38,8 +38,8 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "This site",
-        previewImage: "egg.png",
-        languages: ["python", "sqlite"]
+        previewImage: "image.png",
+        languages: ["html5", "css", "javascript"]
     },
 }
 
@@ -111,15 +111,11 @@ function populateProjectsGrid() {
                 projectOrder.forEach((projectName, index) => {
                     thisProject = projects[projectName]
 
-                    console.log(projectName, thisProject)
-
                     element.innerHTML += projectSummaryTemplateText
 
-                    console.log(element.children[index].children[0])
 
-                    element.children[index].style["--c"] = thisProject.color;
-                    element.children[index].children[0].style.setProperty("--i", thisProject.previewImage);
-                    element.children[index].children[0].style.setProperty("--c", thisProject.color);
+                    element.children[index].style = "--c:" + thisProject.color;
+                    element.children[index].children[0].style = "--i: url(" + thisProject.previewImage + "); --c:" + thisProject.color;
 
                     element.children[index].children[0].children[0].innerHTML = thisProject.displayName
                     
@@ -135,16 +131,6 @@ function populateProjectsGrid() {
                     })
 
                     element.children[index].children[1].children[0].innerHTML = thisProject.previewDescription
-
-                    // const projectSummaryText = xhr.responseText
-                    // const projectSummary = (new  DOMParser()).parseFromString(projectSummaryText, "text/html");
-                    // console.log(typeof(projectSummary))
-                    // 
-                    // projectSummary.children[0]
-
-                    //element.appendChild(projectSummary)
-                    
-
                 })
             })
             
