@@ -19,8 +19,13 @@ clip-path: polygon(
 `,
 }
 const projectOrder = [
-    "sqlite_bookstore",
+    "snack_man",
+    "autetris",
     "portfolio",
+    "album_downloader",
+    "sqlite_bookstore",
+    "create_distillation",
+    "diary_viewer",
 ]
 const projects = {
     sqlite_bookstore: {
@@ -30,7 +35,7 @@ const projects = {
         date: "2026-02-04",
         previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
         previewImage: "image.png",
-        languages: ["python", "sqlite"]
+        languages: ["python", "tkinter", "sqlite"]
     },
     portfolio: {
         displayName: "Portfolio Website",
@@ -41,7 +46,54 @@ const projects = {
         previewImage: "image.png",
         languages: ["html5", "css", "javascript"]
     },
+    snack_man: {
+        displayName: "Snack Man Deluxe",
+        color: "#00028d",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "Not done yet (future)",
+        previewImage: "image.png",
+        languages: ["javascript"]
+    },
+    diary_viewer: {
+        displayName: "Diary Viewer",
+        color: "#ffbceb",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "An old attempt at a diary management program",
+        previewImage: "image.png",
+        languages: ["python", "tkinter"]
+    },
+    album_downloader: {
+        displayName: "Album downloader",
+        color: "#00588b",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "A Customtk program that uses yt-dlp and some other python libraries to download albums and organise them into folders",
+        previewImage: "image.png",
+        languages: ["python", "customtk"]
+    },
+    create_distillation: {
+        displayName: "Create: Distillation",
+        color: "#a84300",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "Minecraft plugin for the Create mod, adding distillation and REMEMBER OTHER MECHANIC. Not even started.",
+        previewImage: "image.png",
+        languages: ["java", "gradle", "minecraft"]
+    },
+    autetris: {
+        displayName: "AuTetris",
+        color: "#137400",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "Tetris remake in browser, practice for snack man",
+        previewImage: "image.png",
+        languages: ["javascript"]
+    },
 }
+// TODO Add a search panel, add bars for [UNFINISHED], [ABANDONED] which kinda cover it but like on an angle (and those projects are not shown by default)
+// Additional ranking, "autumn's proudness level"
 
 window.onload = function() {
     addHeader();

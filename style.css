@@ -347,12 +347,12 @@ main {
     display: grid;
 }
 
-/* PROJECTS PAGE*/
+/* PROJECTS PAGE */
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); 
-    grid-auto-rows: 18rem; 
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); 
+    grid-auto-rows: 18rem; /*Height of summaries*/ 
     gap: 10px;
     transition: all 200ms ease-out;
 }
