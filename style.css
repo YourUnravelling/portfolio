@@ -8,6 +8,10 @@
     background-color: rgb(82, 255, 255);
 }
 
+.color-black {
+    color: black !important;
+}
+
 .no-js-warning {
     justify-content: center;
     padding-top: 0.5rem;
@@ -405,12 +409,14 @@ This should adapt to the size of the page, up to a point where they stop botheri
 
 .project-summary > .bg > label {
     position: relative;
+    color: inherit;
     font-size: 1.3rem;
     top: calc(100% - 1.1rem);
     left: 0.35rem;
 }
 
 .project-summary > .info {
+    color: inherit;
     margin: 0.8rem;
 }
 
@@ -421,6 +427,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: inherit;
     margin: 0px;
 }
 

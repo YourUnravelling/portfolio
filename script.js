@@ -36,16 +36,14 @@ const projects = {
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
-        previewImage: "generalised_rms.png",
         languages: ["python", "tkinter", "sqlite"]
     },
     portfolio: {
         displayName: "Portfolio Website",
-        color: "#9ddbff",
+        color: "#83b0fb",
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "This site",
-        previewImage: "image.png",
         languages: ["html5", "css", "javascript"]
     },
     snack_man: {
@@ -54,7 +52,6 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Not done yet (future)",
-        previewImage: "image.png",
         languages: ["javascript"]
     },
     diary_viewer: {
@@ -63,7 +60,6 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "An old attempt at a diary management program",
-        previewImage: "diary_program.png",
         languages: ["python", "tkinter"]
     },
     album_downloader: {
@@ -72,7 +68,6 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "A Customtk program that uses yt-dlp and some other python libraries to download albums and organise them into folders",
-        previewImage: "image.png",
         languages: ["python", "customtk"]
     },
     create_distillation: {
@@ -81,7 +76,6 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Minecraft plugin for the Create mod, adding distillation and REMEMBER OTHER MECHANIC. Not even started.",
-        previewImage: "image.png",
         languages: ["java", "gradle", "minecraft"]
     },
     autetris: {
@@ -90,7 +84,6 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Tetris remake in browser, practice for snack man",
-        previewImage: "image.png",
         languages: ["javascript"]
     },
     quartered: {
@@ -99,16 +92,14 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Card game in godot engine, unfinished",
-        previewImage: "quartered.png",
         languages: ["godot"]
     },
     bucket_list: {
         displayName: "Bucket List",
         color: "#ffd9a1",
-        textIsDark: false,
+        textIsDark: true,
         date: "2026-02-04",
         previewDescription: "A level media project",
-        previewImage: "quartered.png",
         languages: ["godot"]
     }
 }
@@ -185,9 +176,9 @@ function populateProjectsGrid() {
 
                     element.innerHTML += projectSummaryTemplateText;
 
-                    const previewURL = "resources/projects/cover_images/" + thisProject.previewImage;
+                    const previewURL = "resources/projects/cover_images/" + projectName + ".png";
                     element.children[index].style = "--c:" + thisProject.color;
-                    element.children[index].children[0].style = "--i: url(" + previewURL+ "); --c:" + thisProject.color;
+                    element.children[index].children[0].style = "--i: url(" + previewURL + "); --c:" + thisProject.color;
 
                     element.children[index].children[0].children[0].innerHTML = thisProject.displayName
                     
@@ -201,6 +192,14 @@ function populateProjectsGrid() {
                         element.children[index].children[0].children[1].appendChild(languageImageElement)
 
                     })
+                    if (thisProject.textIsDark) { // TODO Auto detect this
+                        console.log("Text is now dark")
+                        // Target description
+                        element.children[index].children[1].children[0].classList.add("color-black")
+
+                        // Target label
+                        element.children[index].children[0].children[0].classList.add("color-black")
+                    }
 
                     element.children[index].children[1].children[0].innerHTML = thisProject.previewDescription
                 })
