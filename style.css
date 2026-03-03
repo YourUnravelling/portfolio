@@ -344,6 +344,8 @@ footer {
 
 main {
     grid-area: content;
+    margin-top: 0px;
+    margin-bottom: 10rem;
     /*background-color: rgba(0, 0, 255, 0);*/
 }
 
