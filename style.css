@@ -544,6 +544,14 @@ main > h1 {
     background-size: 6rem 6rem;
     background-repeat: no-repeat;
     background-position: 1rem;
+    transition: border-width 0.2s;
+    border: 0px solid white;
+    box-sizing: border-box;
+
+
+}
+.links-grid > a:hover {
+    border: 10px solid white;
 }
 
 .github    {--i: url("resources/socials/github.png")}
