@@ -107,7 +107,6 @@
 }
 
 body {
-    height: 100vh;
     margin: 0;
     background: pink;
     display: grid;
@@ -363,12 +362,6 @@ main {
     transition: all 200ms ease-out;
 }
 
-
-/*
-Project instance (should also have a symbol for programming language(s)
-This should adapt to the size of the page, up to a point where they stop bothering and just change the amount in the row
-*/
-
 .project-summary *, 
 .project-summary {
     cursor: pointer;
@@ -409,6 +402,16 @@ This should adapt to the size of the page, up to a point where they stop botheri
     background-size: cover;
 }
 
+.project-summary > .bg::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+
+}
+
 .project-summary > .bg > label {
     position: relative;
     color: inherit;
@@ -445,6 +448,8 @@ This should adapt to the size of the page, up to a point where they stop botheri
     max-width: 30px;
     max-height: 30px;
 }
+
+/* REPORT PAGE */
 
 .document {
     align-self: center;
@@ -510,6 +515,7 @@ This should adapt to the size of the page, up to a point where they stop botheri
     font-size: 1.5em;
 }
 
+/* @MEDIA CONTROLS */
 
 @media screen and (max-width: 1150px) {
     .no-js-warning {
