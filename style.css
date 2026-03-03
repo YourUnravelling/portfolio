@@ -394,29 +394,28 @@ main {
 
 .project-summary > .bg {
     margin: 0.5rem;
-    border-radius: 1rem;
     width: calc(100% - 1rem);
     height: 9rem;
-    background-image: var(--i); /* fallback */
-    background: linear-gradient(to bottom, transparent, var(--c)),  var(--i) ;
-    background-size: cover;
+
 }
 
-.project-summary > .bg::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-
+.project-summary > .bg::before {
+    display: block;
+    content: "";
+    position: inherit;
+    border-radius: 1rem;
+    width: auto;
+    height: 100%;
+    background-image: var(--i); /* fallback */
+    mask-image: linear-gradient(to top, transparent, white);
+    background-size: cover;
 }
 
 .project-summary > .bg > label {
     position: relative;
     color: inherit;
     font-size: 1.3rem;
-    top: calc(100% - 1.1rem);
+    top: calc(0% - 1.1rem);
     left: 0.35rem;
 }
 
@@ -439,7 +438,7 @@ main {
 .project-summary > .bg > .language-icons {
     position: relative;
     --h: 30px;
-    top: calc(100% - var(--h));
+    top: calc(0% - var(--h));
     margin: 10px;
     float: inline-end;
 }

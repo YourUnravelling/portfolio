@@ -56,7 +56,7 @@ const projects = {
     },
     diary_viewer: {
         displayName: "Diary Viewer",
-        color: "#ffbceb",
+        color: "#ffbceb55",
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "An old attempt at a diary management program",
@@ -178,7 +178,7 @@ function populateProjectsGrid() {
 
                     const previewURL = "resources/projects/cover_images/" + projectName + ".png";
                     element.children[index].style = "--c:" + thisProject.color;
-                    element.children[index].children[0].style = "--i: url(" + previewURL + "); --c:" + thisProject.color;
+                    element.children[index].children[0].style = "--i: url(" + previewURL + ")"
 
                     element.children[index].children[0].children[0].innerHTML = thisProject.displayName
                     
