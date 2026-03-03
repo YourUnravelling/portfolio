@@ -26,6 +26,8 @@ const projectOrder = [
     "sqlite_bookstore",
     "create_distillation",
     "diary_viewer",
+    "quartered",
+    "bucket_list"
 ]
 const projects = {
     sqlite_bookstore: {
@@ -34,7 +36,7 @@ const projects = {
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
-        previewImage: "image.png",
+        previewImage: "generalised_rms.png",
         languages: ["python", "tkinter", "sqlite"]
     },
     portfolio: {
@@ -61,7 +63,7 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "An old attempt at a diary management program",
-        previewImage: "image.png",
+        previewImage: "diary_program.png",
         languages: ["python", "tkinter"]
     },
     album_downloader: {
@@ -91,6 +93,24 @@ const projects = {
         previewImage: "image.png",
         languages: ["javascript"]
     },
+    quartered: {
+        displayName: "Quartered",
+        color: "#517dbe",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "Card game in godot engine, unfinished",
+        previewImage: "quartered.png",
+        languages: ["godot"]
+    },
+    bucket_list: {
+        displayName: "Bucket List",
+        color: "#ffd9a1",
+        textIsDark: false,
+        date: "2026-02-04",
+        previewDescription: "A level media project",
+        previewImage: "quartered.png",
+        languages: ["godot"]
+    }
 }
 // TODO Add a search panel, add bars for [UNFINISHED], [ABANDONED] which kinda cover it but like on an angle (and those projects are not shown by default)
 // Additional ranking, "autumn's proudness level"
@@ -163,11 +183,11 @@ function populateProjectsGrid() {
                 projectOrder.forEach((projectName, index) => {
                     thisProject = projects[projectName]
 
-                    element.innerHTML += projectSummaryTemplateText
+                    element.innerHTML += projectSummaryTemplateText;
 
-
+                    const previewURL = "resources/projects/cover_images/" + thisProject.previewImage;
                     element.children[index].style = "--c:" + thisProject.color;
-                    element.children[index].children[0].style = "--i: url(" + thisProject.previewImage + "); --c:" + thisProject.color;
+                    element.children[index].children[0].style = "--i: url(" + previewURL+ "); --c:" + thisProject.color;
 
                     element.children[index].children[0].children[0].innerHTML = thisProject.displayName
                     
