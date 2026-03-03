@@ -99,7 +99,7 @@ const projects = {
         color: "#ffd9a1",
         textIsDark: true,
         date: "2026-02-04",
-        previewDescription: "A level media project",
+        previewDescription: "A level compsci project",
         languages: ["godot"]
     }
 }
