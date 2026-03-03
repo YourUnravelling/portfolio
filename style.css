@@ -343,11 +343,24 @@ footer {
 }
 /* TODO Make this position: fixed so it follows the vp when it goes below the page height*/
 
+
+/* MAIN - ALL PAGES */
+
 main {
     grid-area: content;
     margin-top: 0px;
     margin-bottom: 10rem;
     /*background-color: rgba(0, 0, 255, 0);*/
+}
+
+main > h1 {
+    text-align: center;
+    font-size: 5rem;
+    margin: 1.5rem auto 2.5rem auto;
+    mix-blend-mode: hard-light;
+    color: #a5c0c1;
+    pointer-events: none;
+    user-select: none;
 }
 
 .links-grid {
