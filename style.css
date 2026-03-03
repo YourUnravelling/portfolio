@@ -363,10 +363,6 @@ main > h1 {
     user-select: none;
 }
 
-.links-grid {
-    display: grid;
-}
-
 /* PROJECTS PAGE */
 
 .projects-grid {
@@ -528,6 +524,33 @@ main > h1 {
 .document > h4 {
     font-size: 1.5em;
 }
+
+/* CONTACT PAGE*/
+
+.links-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0px;
+}
+
+.links-grid > a {
+    border-radius: 50%;
+    background-color: black;
+    min-width: 8rem;
+    min-height: 8rem;
+    margin: 0.8rem;
+    background-image: var(--i);
+    background-size: 6rem 6rem;
+    background-repeat: no-repeat;
+    background-position: 1rem;
+}
+
+.github    {--i: url("resources/socials/github.png")}
+.linkedin  {--i: url("resources/socials/linkedin.png")}
+.instagram {--i: url("resources/socials/tkinter.png")}
+.email     {--i: url("resources/socials/email.png")}
+
 
 /* @MEDIA CONTROLS */
 
