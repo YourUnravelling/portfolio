@@ -24,10 +24,10 @@ const projectOrder = [
     "portfolio",
     "album_downloader",
     "sqlite_bookstore",
+    "quartered",
+    "bucket_list",
     "create_distillation",
     "diary_viewer",
-    "quartered",
-    "bucket_list"
 ]
 const projects = {
     sqlite_bookstore: {
