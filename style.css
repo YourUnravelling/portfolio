@@ -536,7 +536,7 @@ main > h1 {
 
 .links-grid > a {
     border-radius: 50%;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     min-width: 8rem;
     min-height: 8rem;
     margin: 0.8rem;
@@ -544,7 +544,7 @@ main > h1 {
     background-size: 6rem 6rem;
     background-repeat: no-repeat;
     background-position: 1rem;
-    transition: border-width 0.2s;
+    transition: border-width 0.2s, box-shadow 0.2s;
     border: 0px solid white;
     box-sizing: border-box;
 
@@ -552,12 +552,15 @@ main > h1 {
 }
 .links-grid > a:hover {
     border: 10px solid white;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.397);
 }
 
-.github    {--i: url("resources/socials/github.png")}
-.linkedin  {--i: url("resources/socials/linkedin.png")}
-.instagram {--i: url("resources/socials/tkinter.png")}
-.email     {--i: url("resources/socials/email.png")}
+.links-grid > a > img {
+    filter: invert();
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+}
 
 
 /* @MEDIA CONTROLS */
