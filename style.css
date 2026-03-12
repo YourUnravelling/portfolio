@@ -194,7 +194,7 @@ header {
     grid-template-columns: auto 1fr auto auto;
     grid-template-rows: 4rem 2rem auto;
     grid-template-areas: 
-        "autumn-icon . nav hamburger"
+        "autumn-icon . nav darkmode"
         ". . . ."
         ". . . ."
 }
@@ -303,18 +303,26 @@ header {
     color: rgb(255, 98, 125) !important;
 }
 
-.mobile-nav-icon, .header-bar > .settings > a {
+.mobile-nav-icon, .desktop-darkmode-icon, .header-bar > .settings > a {
     margin-left: 1rem;
     width: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-.mobile-nav-icon:hover {
+.mobile-nav-icon:hover, .desktop-darkmode-icon:hover {
     background-color: #303030 !important;
-    grid-area: hamburger;
 }
+
+.mobile-nav-icon {
+    grid-area: hamburger;
+    display: none; /* Hide when in desktop mode*/
+}
+
+.desktop-darkmode-icon {
+    grid-area: darkmode;
+}
+
 
 .hamburger, .sun, .moon {
     align-self: center;
@@ -405,6 +413,7 @@ main > h1 {
 .project-summary *, 
 .project-summary {
     cursor: pointer;
+    color: white;
 }
 
 .project-summary {
@@ -658,6 +667,13 @@ main > h1 {
     .header-bar > nav > a {
         border-radius: 0 2rem 2rem 0 ;
     }
+    .desktop-darkmode-icon {
+        display: none;
+    }
+    .mobile-nav-icon {
+        display: grid;
+    }
+
 }
 
 @media only screen and (max-width: 550px) {

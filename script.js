@@ -106,9 +106,6 @@ const projects = {
 // TODO Add a search panel, add bars for [UNFINISHED], [ABANDONED] which kinda cover it but like on an angle (and those projects are not shown by default)
 // Additional ranking, "autumn's proudness level"
 
-window.onload = function() { // Triggered when the whole page has finished loading
-}
-
 addEventListener("DOMContentLoaded", (event) => {initialise()}) // Run after the main DOM is loaded, not images and stuff though
 
 function initialise() { // Called on full load of the body element and its children
@@ -290,3 +287,10 @@ function loadDarkMode() {
     return (localStorage.getItem("darkMode") === 'true')
 }
 
+
+function closeNavIfBig(){
+    if (window.innerWidth > 750 && document.getElementById('header-bar').classList.contains("open")) {
+        document.getElementById('header-bar').classList.remove("open")
+    }
+};
+window.onresize = closeNavIfBig
