@@ -477,6 +477,29 @@ main > h1 {
     color: black
 }
 
+.document > .figures {
+    display: inline-flex;
+    width: 100%;
+    margin: 0px auto;
+    justify-content: center;
+}
+
+.document > .figures > figure{
+    display: grid;
+    width: fit-content;
+    flex: 1;
+}
+
+.document > .figures > figure > img {
+    margin: 0px auto auto auto;
+    width: min(40rem, 100%);
+}
+
+.document > .figures > figure > figcaption {
+    text-align: center;
+    margin-top: 0.8rem;
+}
+
 .document code {
     display: grid;
     margin: 1rem;
