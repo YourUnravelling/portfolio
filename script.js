@@ -106,7 +106,13 @@ const projects = {
 // TODO Add a search panel, add bars for [UNFINISHED], [ABANDONED] which kinda cover it but like on an angle (and those projects are not shown by default)
 // Additional ranking, "autumn's proudness level"
 
-window.onload = function() {
+window.onload = function() { // Triggered when the whole page has finished loading
+}
+
+addEventListener("DOMContentLoaded", (event) => {initialise()}) // Run after the main DOM is loaded, not images and stuff though
+
+function initialise() { // Called on full load of the body element and its children
+    setDarkMode(loadDarkMode())
     addHeader();
 
     addCodeSnippets()
@@ -138,6 +144,7 @@ function initialiseShadow() {
 }
 
 function addHeader() {
+    //setDarkMode(loadDarkMode());
     //("#heading-placeholder").load("header.html")
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "html_resources/header.html", true);
@@ -263,3 +270,23 @@ function addCodeSnippets() {
 function openMenu() {
     
 }
+
+function setDarkMode(value) {
+    if (value) {
+        document.body.classList.add('darkmode')
+    } else {
+        document.body.classList.remove('darkmode')
+    }
+    saveDarkMode(value)
+    console.log(value)
+
+}
+
+function saveDarkMode(value) {
+    localStorage.setItem("darkMode", value.toString())
+}
+
+function loadDarkMode() {
+    return (localStorage.getItem("darkMode") === 'true')
+}
+
