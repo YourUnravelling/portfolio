@@ -304,7 +304,7 @@ header {
 }
 
 .mobile-nav-icon, .desktop-darkmode-icon, .header-bar > .settings > a {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     width: 4rem;
     display: flex;
     align-items: center;
