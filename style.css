@@ -11,6 +11,10 @@
     background-color: rgb(82, 255, 255);
 }
 
+:root {
+    --shadow-big: rgba(0, 0, 0, 0.438) 0px 15px 30px
+}
+
 .color-black {
     color: black !important;
 }
@@ -510,9 +514,11 @@ main > h1 {
     padding: 2rem 5rem 5rem 5rem;
     max-width: 50rem;
     color: var(--document-text);
-    border: 2px black;
+    border: 2px var(--text-colour); /* Didn't like the way it looked but kept the line here in case I change my mind*/
     background-color: var(--document-bg);
-    box-shadow: 0px 15px 30px 1px rgba(0, 0, 0, 0.438);
+    /*box-shadow: 0px 15px 30px 1px rgba(0, 0, 0, 0.438);
+    box-shadow: var(--shadow-big);*/
+    box-shadow: var(--shadow-big)
 
 }
 
@@ -588,6 +594,33 @@ main > h1 {
 
 .document > h4 {
     font-size: 1.5em;
+}
+
+/* VIDEO PAGE*/
+
+.less-margin-main {
+    margin-bottom: 3rem;
+}
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--darker-grey);
+    padding-top: 56.25%; /*For 16:9, from W3Schools*/
+    box-shadow: var(--shadow-big);
+    border-radius: 2rem;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    justify-self: center;
 }
 
 /* CONTACT PAGE*/
