@@ -321,6 +321,8 @@ header {
 
 .desktop-darkmode-icon {
     grid-area: darkmode;
+    padding-top: 1.18rem !important;
+    font-size: 2rem !important;
 }
 
 

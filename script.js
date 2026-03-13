@@ -275,8 +275,6 @@ function setDarkMode(value) {
         document.body.classList.remove('darkmode')
     }
     saveDarkMode(value)
-    console.log(value)
-
 }
 
 function saveDarkMode(value) {
