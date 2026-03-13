@@ -314,6 +314,11 @@ header {
     background-color: #303030 !important;
 }
 
+.desktop-darkmode-icon, .header-bar > .settings > a {
+    padding-top: 1.1rem !important;
+    font-size: 2rem !important;
+}
+
 .mobile-nav-icon {
     grid-area: hamburger;
     display: none; /* Hide when in desktop mode*/
@@ -321,8 +326,6 @@ header {
 
 .desktop-darkmode-icon {
     grid-area: darkmode;
-    padding-top: 1.1rem !important;
-    font-size: 2rem !important;
 }
 
 
