@@ -25,24 +25,26 @@
             <a title="Email"    class="email"    href="mailto:conneljmh@hotmail.com"            ><img src="resources/socials/email.svg"></a>
             <a title="Matrix"   class="matrix"   href="mailto:conneljmh@hotmail.com"            ><img src="resources/socials/email.svg"></a>
         </div>
-        <h1>Contact</h1>
-        TODO have links in circles at the top, then a contact for below
-        
+        <h1>Contact</h1>        
         <div class="panel">
-            <form action="mailto:conneljmh@hotmail.com" method="get">
-                <select name="communicationType" id="communicationType">
+            <form class="contact-grid" action="mailto:conneljmh@hotmail.com" method="get">
+
+                <label class="type-desc" for="communicationType">Communication type</label>
+                <select class="type" name="communicationType" id="communicationType">
                     <option value="1">Praise</option>
                     <option value="1">Complaint</option>
                     <option value="2">Sexual advance</option>
                 </select>
-                <textarea name="message" placeholder="Message"></textarea>
 
-                <label for="email">Email</label>
-                <input name="email" id="email" type="email" required>
+                <textarea class="message" name="message" placeholder="Message"></textarea>
 
-                <label for="high-velocity">High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</label>
-                <input type="checkbox" id="high-velocity"> 
-                <input type="button" value="Submit">
+                <label class="email-desc" for="email">Email</label>
+                <input class="email" name="email" id="email" type="email" required>
+
+                <label class="hivel-desc" for="high-velocity">High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</label>
+                <input class="hivel" type="checkbox" id="high-velocity"> 
+
+                <input class="submit" type="button" value="Submit">
             </form>
         </div>
 

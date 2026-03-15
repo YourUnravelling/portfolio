@@ -130,6 +130,7 @@ body {
 
     --white:         #fff;
     --text-colour:   black;
+    --panel:         #ffffff48;
     --code-colour:   #808080;
     --code-text:     #303030;
     --code-hilight:  #e6e6e6;
@@ -143,6 +144,7 @@ body {
 body.darkmode {
     --white:         black;
     --text-colour:   #ffffff;
+    --panel:         #36363648;
     --code-colour:   #b3b3b3;
     --code-text:     #dadada;
     --code-hilight:  #585858;
@@ -409,6 +411,15 @@ main > h1 {
     user-select: none;
 }
 
+/* General classes for the main section in all pages*/
+
+.panel {
+    background-color: var(--panel);
+    border-radius: 1rem;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.438);
+}
+
+
 /* PROJECTS PAGE */
 
 .projects-grid {
@@ -661,6 +672,66 @@ iframe {
     user-select: none;
 }
 
+form.contact-grid {
+    display: grid;
+    grid-template-areas: 
+        ". title      title   . "
+        ". email-desc email   . "
+        ". type-desc  type    . "
+        ". message    message . "
+        ". hivel-desc hivel   . "
+        ". submit     submit  . "
+    ;
+    grid-template-columns: auto 20rem 25rem auto;
+}
+
+form > * {
+    margin: 1rem;
+}
+form > .title         {grid-area: title}
+form > .email-desc    {grid-area: email-desc}
+form > .email         {grid-area: email}
+form > .type-desc     {grid-area: type-desc}
+form > .type          {grid-area: type}
+form > .hivel-desc    {grid-area: hivel-desc}
+form > .hivel         {grid-area: hivel}
+form > .message       {grid-area: message}
+form > .submit        {grid-area: submit}
+
+textarea, select, input {
+    border: none;
+}
+
+input,
+select,
+textarea,
+button {
+    outline: solid rgba(255, 255, 255, 0.308) 0px;
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    transition: outline-width 200ms, background-color 200ms;
+    
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: solid rgba(255, 255, 255, 0.349) 5px;
+}
+input:hover,
+select:hover,
+textarea:hover,
+button:hover {
+    background-color: var(--light-grey);
+}
+
+form > textarea {
+    resize: none;
+    height: 10rem;
+
+}
 
 /* @MEDIA CONTROLS */
 
@@ -668,6 +739,17 @@ iframe {
     .no-js-warning {
     font-size: 0.8rem;
     }
+    form.contact-grid {
+        grid-template-areas: 
+            "title      title  "
+            "email-desc email  "
+            "type-desc  type   "
+            "message    message"
+            "hivel-desc hivel  "
+            "submit     submit ";
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 @media screen and (max-width: 1050px) {
