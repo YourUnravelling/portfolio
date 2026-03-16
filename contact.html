@@ -31,9 +31,10 @@
 
                 <label class="type-desc" for="communicationType">Communication type</label>
                 <select class="type" name="communicationType" id="communicationType">
+                    <option value="0">Idea</option>
                     <option value="1">Praise</option>
-                    <option value="1">Complaint</option>
-                    <option value="2">Sexual advance</option>
+                    <option value="2">Complaint</option>
+                    <option value="3">Legal threat</option>
                 </select>
 
                 <textarea class="message" name="message" placeholder="Message"></textarea>
@@ -41,10 +42,16 @@
                 <label class="email-desc" for="email">Email</label>
                 <input class="email" name="email" id="email" type="email" required>
 
-                <label class="hivel-desc" for="high-velocity">High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</label>
-                <input class="hivel" type="checkbox" id="high-velocity"> 
+                <div class="hivel-cont">
+                    <div>
+                        <input class="hivel" type="checkbox" id="high-velocity"> 
+                    </div>
+                    <label class="hivel-desc" for="high-velocity">High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</label>
+                </div>
 
-                <input class="submit" type="button" value="Submit">
+                <div class="submit">
+                    <input  type="button" value="Submit">
+                </div>
             </form>
         </div>
 

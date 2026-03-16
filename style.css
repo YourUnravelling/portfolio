@@ -679,10 +679,14 @@ form.contact-grid {
         ". email-desc email   . "
         ". type-desc  type    . "
         ". message    message . "
-        ". hivel-desc hivel   . "
+        ". hivel-cont hivel-cont . "
         ". submit     submit  . "
     ;
     grid-template-columns: auto 20rem 25rem auto;
+}
+
+form * {
+    font: inherit;
 }
 
 form > * {
@@ -693,10 +697,12 @@ form > .email-desc    {grid-area: email-desc}
 form > .email         {grid-area: email}
 form > .type-desc     {grid-area: type-desc}
 form > .type          {grid-area: type}
-form > .hivel-desc    {grid-area: hivel-desc}
-form > .hivel         {grid-area: hivel}
+form > div > .hivel-desc    {grid-area: hivel-desc; margin-left: 0.2rem;}
+form > .hivel-cont    {grid-area: hivel-cont; display: flex}
+form > .hivel-cont:first-child    {margin: 1rem;}
 form > .message       {grid-area: message}
-form > .submit        {grid-area: submit}
+form > .submit        {grid-area: submit; justify-self: center} 
+form > .submit > *    {min-width: 10rem;}
 
 textarea, select, input {
     border: none;
@@ -745,7 +751,7 @@ form > textarea {
             "email-desc email  "
             "type-desc  type   "
             "message    message"
-            "hivel-desc hivel  "
+            "hivel-cont hivel-cont"
             "submit     submit ";
         grid-template-columns: 1fr 1fr;
     }
