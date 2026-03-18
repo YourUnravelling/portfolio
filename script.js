@@ -17,6 +17,21 @@ clip-path: polygon(
     0%      100% 
 );
 `,
+darkmode: `
+body {
+    ...
+
+    --white:         #fff;
+    --text-colour:   black;
+    ...
+}
+
+body.darkmode {
+    --white:         black;
+    --text-colour:   #ffffff;
+    ...
+}
+`
 }
 const projectOrder = [
     "snack_man",

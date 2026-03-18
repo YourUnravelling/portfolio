@@ -109,10 +109,8 @@
         linear-gradient( 200deg,
             var(--p-c1),
             var(--p-c2)
-        )
-        
-        ;
-        animation: PinkAnim 10s infinite;
+        );
+    animation: PinkAnim 10s infinite;
 }
 
 body {
@@ -400,7 +398,7 @@ main {
     /*background-color: rgba(0, 0, 255, 0);*/
 }
 
-main > h1 {
+main > h1, .vertical-big-heading {
     text-align: center;
     font-size: 5rem;
     margin: 1.5rem auto 2.5rem auto;
@@ -740,6 +738,28 @@ form > textarea {
     height: 10rem;
 
 }
+
+/* MAIN PAGE*/
+
+.main-grid {
+    display: grid;
+    margin: 1rem 10rem;
+    grid-template-areas: "a h";
+    grid-template-columns: auto 10rem;
+}
+
+.vertical-big-heading {
+    grid-area: h;
+    writing-mode: vertical-lr;
+    min-height: 15rem;
+    font-size: 10rem;
+}
+
+.main-widgets {
+    grid-area: a;
+}
+
+
 
 /* @MEDIA CONTROLS */
 
