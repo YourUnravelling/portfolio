@@ -51,15 +51,17 @@ const projects = {
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "This was an early iteration of a generalised SQLite file editor, designed to be a generalised foundation that could be easily modified for spesific purposes",
-        languages: ["python", "tkinter", "sqlite"]
+        languages: ["python", "tkinter", "sqlite"],
+        show: true
     },
     portfolio: {
         displayName: "Portfolio Website",
         color: "#83b0fb",
-        textIsDark: false,
+        textIsDark: true,
         date: "2026-02-04",
         previewDescription: "This site",
-        languages: ["html5", "css", "javascript"]
+        languages: ["html5", "css", "javascript"],
+        show: true
     },
     snack_man: {
         displayName: "Snack Man Deluxe",
@@ -67,15 +69,17 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Not done yet (future)",
-        languages: ["javascript"]
+        languages: ["javascript"],
+        show: true
     },
     diary_viewer: {
         displayName: "Diary Viewer",
-        color: "#ffbceb55",
+        color: "#ffbceb",
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "An old attempt at a diary management program",
-        languages: ["python", "tkinter"]
+        languages: ["python", "tkinter"],
+        show: true
     },
     album_downloader: {
         displayName: "Album downloader",
@@ -83,7 +87,8 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "A Customtk program that uses yt-dlp and some other python libraries to download albums and organise them into folders",
-        languages: ["python", "customtk"]
+        languages: ["python", "customtk"],
+        show: true
     },
     create_distillation: {
         displayName: "Create: Distillation",
@@ -91,7 +96,8 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Minecraft plugin for the Create mod, adding distillation and REMEMBER OTHER MECHANIC. Not even started.",
-        languages: ["java", "gradle", "minecraft"]
+        languages: ["java", "gradle", "minecraft"],
+        show: false
     },
     autetris: {
         displayName: "AuTetris",
@@ -99,7 +105,8 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Tetris remake in browser, practice for snack man",
-        languages: ["javascript"]
+        languages: ["javascript"],
+        show: false
     },
     quartered: {
         displayName: "Quartered",
@@ -107,7 +114,8 @@ const projects = {
         textIsDark: false,
         date: "2026-02-04",
         previewDescription: "Card game in godot engine, unfinished",
-        languages: ["godot"]
+        languages: ["godot"],
+        show: true
     },
     bucket_list: {
         displayName: "Bucket List",
@@ -115,7 +123,8 @@ const projects = {
         textIsDark: true,
         date: "2026-02-04",
         previewDescription: "A level compsci project",
-        languages: ["godot"]
+        languages: ["godot"],
+        show: true
     }
 }
 // TODO Add a search panel, add bars for [UNFINISHED], [ABANDONED] which kinda cover it but like on an angle (and those projects are not shown by default)
@@ -126,6 +135,7 @@ addEventListener("DOMContentLoaded", (event) => {initialise()}) // Run after the
 function initialise() { // Called on full load of the body element and its children
     setDarkMode(loadDarkMode())
     addHeader();
+    addFooter();
 
     addCodeSnippets()
     populateProjectsGrid()
@@ -173,6 +183,19 @@ function addHeader() {
     xhr.send();
 }
 
+function addFooter() {
+    // TODO Generalise autopopulating to avoid code duping
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "html_resources/footer.html", true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById("footer-root").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+}
+
+
 function populateProjectsGrid() {
 
     // Only get the project summary html once
@@ -189,38 +212,50 @@ function populateProjectsGrid() {
                 // Remove all innerhtml
                 element.innerHTML = ""
                 
-
-                projectOrder.forEach((projectName, index) => {
+                let index = 0
+                projectOrder.forEach((projectName) => {
                     thisProject = projects[projectName]
 
-                    element.innerHTML += projectSummaryTemplateText;
-
-                    const previewURL = "resources/projects/cover_images/" + projectName + ".png";
-                    element.children[index].style = "--c:" + thisProject.color;
-                    element.children[index].children[0].style = "--i: url(" + previewURL + ")"
-
-                    element.children[index].children[0].children[0].innerHTML = thisProject.displayName
                     
-                    thisProject.languages.forEach(language => {
-                        // Create an img element and apply attributes
-                        const languageImageElement = document.createElement("img")
-                        languageImageElement.src = "resources/languages/" + language +".png"
-                        languageImageElement.alt = language
-                        languageImageElement.title = language
+                    if (thisProject.show == true) {
+                        console.log(thisProject, index)
+                        element.innerHTML += projectSummaryTemplateText;
+                        
 
-                        element.children[index].children[0].children[1].appendChild(languageImageElement)
+                        const previewURL = "resources/projects/cover_images/" + projectName + ".png";
+                        let col = thisProject.color
+                        if (col.length == 7) {
+                            col += "AA" // TODO Make this nicer
+                        }
+                        element.children[index].style = "--c:" + col; 
+                        element.children[index].children[0].style = "--i: url(" + previewURL + ")"
 
-                    })
-                    if (thisProject.textIsDark) { // TODO Auto detect this
-                        console.log("Text is now dark")
-                        // Target description
-                        element.children[index].children[1].children[0].classList.add("color-black")
+                        element.children[index].children[0].children[0].innerHTML = thisProject.displayName
+                        
+                        thisProject.languages.forEach(language => {
+                            // Create an img element and apply attributes
+                            const languageImageElement = document.createElement("img")
+                            languageImageElement.src = "resources/languages/" + language +".png"
+                            languageImageElement.alt = language
+                            languageImageElement.title = language
 
-                        // Target label
-                        element.children[index].children[0].children[0].classList.add("color-black")
+                            element.children[index].children[0].children[1].appendChild(languageImageElement)
+
+                        })
+                        if (thisProject.textIsDark) { // TODO Auto detect this
+                            console.log("Text is now dark")
+                            // Target description
+                            element.children[index].children[1].children[0].classList.add("color-black")
+
+                            // Target label
+                            element.children[index].children[0].children[0].classList.add("color-black")
+
+                        }
+                        
+                        element.children[index].children[1].children[0].innerHTML = thisProject.previewDescription
+
+                        index += 1 // Only iterate the index if the element was successfully added
                     }
-
-                    element.children[index].children[1].children[0].innerHTML = thisProject.previewDescription
                 })
             })
             

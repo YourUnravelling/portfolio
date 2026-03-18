@@ -191,6 +191,11 @@ header {
     background-color: black;
 }
 
+.footer-bar > * {
+    color: white;
+    padding: 1.4rem 20%;
+}
+
 .header-bar {
     justify-content: flex-start;
     display: grid;
@@ -410,10 +415,13 @@ main > h1, .vertical-big-heading {
 
 /* General classes for the main section in all pages*/
 
-.panel {
+.panel, .pad-panel {
     background-color: var(--panel);
     border-radius: 1rem;
     box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.438);
+}
+.pad-panel {
+    padding: 1rem 2rem;
 }
 
 
@@ -753,10 +761,35 @@ form > textarea {
     writing-mode: vertical-lr;
     min-height: 15rem;
     font-size: 10rem;
+    margin-left: 1rem;
 }
 
 .main-widgets {
     grid-area: a;
+}
+
+article > h2 {
+    margin-right: 10rem;
+    text-align: right;
+    font-size: 2rem;
+}
+
+.project-summary.home {
+    background-color: #00028daa;
+}
+.bg.home {
+
+}
+.before-sudo {
+    display: block;
+    content: "";
+    position: inherit;
+    border-radius: 1rem;
+    width: auto;
+    height: 100%;
+    background-image: var(--i);
+    mask-image: linear-gradient(to top, transparent, white);
+    background-size: cover;
 }
 
 
