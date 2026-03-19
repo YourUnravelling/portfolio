@@ -812,7 +812,7 @@ article > h2 {
     background-size: cover;
 }
 
-.animated-thingy {
+.skills-ticker {
     margin: 2rem;
     font-size: 2rem;
     width: 20em;
@@ -821,28 +821,28 @@ article > h2 {
     user-select: none;
     mask-image: linear-gradient(to left, transparent, white 10%, white 90%, transparent);
 }
-.animated-thingy > .scrollee {
+.skills-ticker > .scrollee {
     display: flex;
     position: relative;
     left: 0px;
     animation: langs-progress 10s linear infinite;
 }
-.animated-thingy > .scrollee > div {
+.skills-ticker > .scrollee > div {
     display: flex;
     mix-blend-mode: hard-light;
     color: #a5c0c1;
 }
 
-.animated-thingy > .scrollee > div > div {
+.skills-ticker > .scrollee > div > div {
     margin: 0 1em;
 }
-.animated-thingy > .scrollee > div > .gd {color: #0084ff}
-.animated-thingy > .scrollee > div > .js {color: #F0DB4F}
-.animated-thingy > .scrollee > div > .py {color: #FFD94A}
-.animated-thingy > .scrollee > div > .ht {color: #003cff}
-.animated-thingy > .scrollee > div > .cs {color: #003cff}
-.animated-thingy > .scrollee > div > .sq {color: #d6d6d6}
-.animated-thingy > .scrollee > div > .tk {color: #b2edff}
+.skills-ticker > .scrollee > div > .gd {color: #0084ff}
+.skills-ticker > .scrollee > div > .js {color: #F0DB4F}
+.skills-ticker > .scrollee > div > .py {color: #FFD94A}
+.skills-ticker > .scrollee > div > .ht {color: #003cff}
+.skills-ticker > .scrollee > div > .cs {color: #003cff}
+.skills-ticker > .scrollee > div > .sq {color: #d6d6d6}
+.skills-ticker > .scrollee > div > .tk {color: #b2edff}
 
 
 @keyframes langs-progress {
