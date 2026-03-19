@@ -139,7 +139,7 @@ function initialise() { // Called on full load of the body element and its child
 
     addCodeSnippets()
     populateProjectsGrid()
-    
+    linkForm()
 };
 
 function initialiseButton() {
@@ -314,9 +314,24 @@ function addCodeSnippets() {
     });
 }
 
-function openMenu() {
-    
+function linkForm() {
+    const form = document.getElementById("contact-form")
+    form.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const formObject = Object.fromEntries(new FormData(form));
+        console.log(formObject)
+
+        let formObjString = ""
+        for(var key in formObject){
+            formObjString += key + ": " + formObject[key] + "%0D%0A";
+        }
+        
+        window.location.href = "mailto:conneljmh@hotmail.com?subject=Response to contact form - "+ Date.now() +"&body=" + formObjString;
+    })
 }
+
+
+
 
 function setDarkMode(value) {
     if (value) {
