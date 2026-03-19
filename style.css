@@ -814,30 +814,35 @@ article > h2 {
 
 .animated-thingy {
     margin: 2rem;
-    font-size: large;
+    font-size: 2rem;
     width: 20em;
     overflow: hidden;
+    pointer-events: none;
+    user-select: none;
     mask-image: linear-gradient(to left, transparent, white 10%, white 90%, transparent);
 }
 .animated-thingy > .scrollee {
     display: flex;
     position: relative;
     left: 0px;
-    animation: langs-progress 3s linear infinite;
+    animation: langs-progress 10s linear infinite;
 }
 .animated-thingy > .scrollee > div {
     display: flex;
+    mix-blend-mode: hard-light;
+    color: #a5c0c1;
 }
 
 .animated-thingy > .scrollee > div > div {
-    margin: 0 1rem;
+    margin: 0 1em;
 }
 .animated-thingy > .scrollee > div > .gd {color: #0084ff}
 .animated-thingy > .scrollee > div > .js {color: #F0DB4F}
-.animated-thingy > .scrollee > div > .py {color: #008cff}
+.animated-thingy > .scrollee > div > .py {color: #FFD94A}
 .animated-thingy > .scrollee > div > .ht {color: #003cff}
 .animated-thingy > .scrollee > div > .cs {color: #003cff}
 .animated-thingy > .scrollee > div > .sq {color: #d6d6d6}
+.animated-thingy > .scrollee > div > .tk {color: #b2edff}
 
 
 @keyframes langs-progress {
@@ -845,7 +850,7 @@ article > h2 {
         left: 0px
     }
     100% {
-        left: -31.84em
+        left: -37.4em
     }
 }
 
