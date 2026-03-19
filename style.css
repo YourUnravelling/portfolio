@@ -812,6 +812,42 @@ article > h2 {
     background-size: cover;
 }
 
+.animated-thingy {
+    margin: 2rem;
+    font-size: large;
+    width: 20em;
+    overflow: hidden;
+    mask-image: linear-gradient(to left, transparent, white 10%, white 90%, transparent);
+}
+.animated-thingy > .scrollee {
+    display: flex;
+    position: relative;
+    left: 0px;
+    animation: langs-progress 3s linear infinite;
+}
+.animated-thingy > .scrollee > div {
+    display: flex;
+}
+
+.animated-thingy > .scrollee > div > div {
+    margin: 0 1rem;
+}
+.animated-thingy > .scrollee > div > .gd {color: #0084ff}
+.animated-thingy > .scrollee > div > .js {color: #F0DB4F}
+.animated-thingy > .scrollee > div > .py {color: #008cff}
+.animated-thingy > .scrollee > div > .ht {color: #003cff}
+.animated-thingy > .scrollee > div > .cs {color: #003cff}
+.animated-thingy > .scrollee > div > .sq {color: #d6d6d6}
+
+
+@keyframes langs-progress {
+    0% {
+        left: 0px
+    }
+    100% {
+        left: -31.84em
+    }
+}
 
 
 /* @MEDIA CONTROLS */
