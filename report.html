@@ -24,24 +24,33 @@
             <h3>Header & footer</h3>
             <p>This section includes the header, footer, and all other aspects of the site that are the same accross multiple pages</p>
 
-            <p>For the hamburger icon, I coded a custom css path:</p>
-            <code class="code-snip">CSS clip_path</code>
 
             <p>I moved the header bar out of the grid to allow it to use fixed and follow the screen, and used JS to create a nice shadow to stop it from blending with other white elements</p>
             <p>The header bar also autopopulates to stop me from reusing the code on every page.</p>
 
+            <p>Dark mode is implemented with variables in the body stylesheet, with javascript applying a class to body with a script</p>
+
+            <code class="code-snip">CSS darkmode</code>
+
+            <p>The darkmode value is also stored in the browser using localStorage:</p>
+
+            <code class="code-snip">JavaScript darkScript</code>
+
+            <p>When the screen is small enough, the darkmode button turns into a hamburger icon, which I coded a custom path for.</p>
+            <code class="code-snip">CSS clip_path</code>
 
             <div class="figures">
                 <figure>
-                    <img src="resources/report/alternate-mobile-links-in-menu.png" alt="An image showing the fhguyergf">
+                    <img src="resources/report/alternate-mobile-links-in-menu.png" alt="An image showing concept art for the mobile menu">
                     <figcaption>An example of how the mobile menu could contain links & the dark mode icon</figcaption>
                 </figure>
                 <figure>
-                    <img src="resources/report/alternate-mobile-links-in-menu.png">
-                    <figcaption>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem unde, officiis facere quam animi quia quod sequi voluptates neque voluptatem earum, est minus possimus laborum eligendi dignissimos, debitis quibusdam maiores?</figcaption>
+                    <img src="resources/report/finished-mobile-nav.png" alt="An image showing the mobile menu">
+                    <figcaption>Here's the finished mobile menu</figcaption>
                 </figure>
             </div>
             <h3>Projects page</h3>
+            <p>The project page is a collection of my projects with info on the languages/technologies they use.</p>
 
             <div class="figures">
                 <figure>
@@ -56,8 +65,13 @@
                     <img src="resources/report/full-grid-project-preview.png">
                     <figcaption>An example of how the indented version could be implemented with a grid</figcaption>
                 </figure>
-
             </div>
+
+            <p>The grid autopopulates with JavaScript, rooting from a hardcoded list of objects in the js file. Before this, html is loaded from the resources folder of a blank project preview, this is then customised according to the data stored in the object, for example language icons are added.</p>
+            <code class="code-snip small">JavaScript autoPopulate</code>
+            <p>Currently, clicking the projects does nothing, eventually it should either link to a page about the project or bring up a larger version.</p>
+
+
             <p>I wanted to be able to distinguish between unfinished, abandoned, in progress, and other projects. For unfinished and abandoned projects spesifially, I wanted them to be hidden by default with a clear indication that they're unfinished.</p>
             <div class="figures">
                 <figure>
@@ -65,29 +79,35 @@
                     <figcaption>An example censor bar for unfinished projects.</figcaption>
                 </figure>
             </div>
-
+            <p>Ironically, I didn't finish this feature.</p>
             
 
             <h3>Contact page</h3>
+            <p>Originally I wanted seperate pages for links and a contact form, but I quickly realised this should be a single page.</p>
+            <p>The contact form uses javascript to create a more accurate mailto link, where all options are preserved, and the unix timestamp is sent as part of the subject line.</p>
+            <code class="code-snip small">JavaScript mailto</code>
+
+            <h3>Report page</h3>
+            <p>The report uses lots of css to create the document styling, with a not-fully black colour in dark mode to be easier on the eyes, and to match word closer</p>
+            <code class="code-snip small">CSS reportcss</code>
+
+            <p>The code snippets in this document are autopopulated with span elements, by using the content of the element as lanugage and identifier of the code snippet.</p>
+            <code class="code-snip small">JavaScript snippet</code>
+
+            <p>I could possibly add a caption to them in the future, to the left of the language name.</p>
+
+
             <h3>Main page</h3>
             <p>I rushed the main page in the last few days of the assignment because I had no idea what to put there</p>
 
             <h2>Reflection</h2>
-
-            <h3>HTML</h3>
-            <p>HTML fustrated me due to its large amounts of redundant code when working on multiple pages. In an ideal world, a parent file could be created which contained the header, background, footer, and other consistant elements, and child/instance pages would simpily add elements to the body tag. I'm sure some framework like this exists</p>
-
-            <h3>CSS</h3>
-            <p>On the other hand, css is a very nice language to work with</p>
-
-            <h3>JS</h3>
-            <p></p>
+            <p>HTML fustrated me due to its large amounts of redundant code when working on multiple pages. In an ideal world, a parent file could be created which contained the header, background, footer, and other consistant elements, and child/instance pages would simpily add elements to the body tag. I'm sure some framework like this exists, and I'll probably research and use one like it next time I have a project with more freedom to. On the other hand, css is a very nice language to work with, as it's clearly made with deduplication in mind.</p>
 
             <p>Working on the report has been a bit more annoying in html than it would've in markdown or word, I think because the headings don't stand out, though I do prefer the amount of control and usaility on my Linux laptop. In the future I could use LaTeX or markdown (I could possibly create a custom 'autumn flavoured' markdown with a few features like groups of images with captions that I find annoyingly missing from the normal version).</p>
             <p>Like my other projects, this one too involved a slight crunch at the end, though less than others. This is likely due to me putting less work into this project than others, as well as the project being so closely tied to my identity that I ended up disliking many aspects of it by the end.</p>
 
             <h2>Validation proofs</h2>
-            <p>IMPORTANT NOTE ABOUT VALIDATION</p>
+            <h4 class="red less-low-margin">IMPORTANT NOTE ABOUT VALIDATION</h4>
             <p>The @property at-rule which is used for my animated background fails the validation tests, however identical code snippets on w3c and mdn also fail validators, for that reason I'm pretty sure the validators have just not been updated to support @property, as it's newly baseline according to mdn.</p>
         </div>
     </main>

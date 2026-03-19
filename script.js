@@ -31,6 +31,201 @@ body.darkmode {
     --text-colour:   #ffffff;
     ...
 }
+`,
+darkScript: `
+function setDarkMode(value) {
+    if (value) {
+        document.body.classList.add('darkmode')
+    } else {
+        document.body.classList.remove('darkmode')
+    }
+    saveDarkMode(value)
+}
+
+function saveDarkMode(value) {
+    localStorage.setItem("darkMode", value.toString())
+}
+
+function loadDarkMode() {
+    return (localStorage.getItem("darkMode") === 'true')
+}
+`,
+autoPopulate: `
+function populateProjectsGrid() {
+
+    // Only get the project summary html once
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "html_resources/project-summary.html", true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            projectSummaryTemplateText = xhr.responseText
+
+            // There should only ever be one projects-grid but this is a good way to target it
+            const elements = document.querySelectorAll('.projects-grid');
+            console.log(elements)
+            elements.forEach(element => {
+                // Remove all innerhtml
+                element.innerHTML = ""
+                
+                let index = 0
+                projectOrder.forEach((projectName) => {
+                    thisProject = projects[projectName]
+
+                    
+                    if (thisProject.show == true) {
+                        console.log(thisProject, index)
+                        element.innerHTML += projectSummaryTemplateText;
+                        
+
+                        const previewURL = "resources/projects/cover_images/" + projectName + ".png";
+                        let col = thisProject.color
+                        if (col.length == 7) {
+                            col += "AA" // TODO Make this nicer
+                        }
+                        element.children[index].style = "--c:" + col; 
+                        element.children[index].children[0].style = "--i: url(" + previewURL + ")"
+
+                        element.children[index].children[0].children[0].innerHTML = thisProject.displayName
+                        
+                        thisProject.languages.forEach(language => {
+                            // Create an img element and apply attributes
+                            const languageImageElement = document.createElement("img")
+                            languageImageElement.src = "resources/languages/" + language +".png"
+                            languageImageElement.alt = language
+                            languageImageElement.title = language
+
+                            element.children[index].children[0].children[1].appendChild(languageImageElement)
+
+                        })
+                        if (thisProject.textIsDark) { // TODO Auto detect this
+                            console.log("Text is now dark")
+                            // Target description
+                            element.children[index].children[1].children[0].classList.add("color-black")
+
+                            // Target label
+                            element.children[index].children[0].children[0].classList.add("color-black")
+
+                        }
+                        
+                        element.children[index].children[1].children[0].innerHTML = thisProject.previewDescription
+
+                        index += 1 // Only iterate the index if the element was successfully added
+                    }
+                })
+            })
+            
+        }
+    }
+    xhr.send();
+}
+`,
+mailto: `
+function linkForm() {
+    const form = document.getElementById("contact-form")
+    form.addEventListener("submit", function (e) {
+        e.preventDefault() // Block default action of the form 
+        const formObject = Object.fromEntries(new FormData(form));
+
+        // Create a string of all form options
+        let formObjString = ""
+        for(var key in formObject){
+            formObjString += key + ": " + formObject[key] + "%0D%0A";
+        }
+        
+        // Open mail client
+        window.location.href = "mailto:conneljmh@hotmail.com?subject=Response to contact form - "+ Date.now() +"&body=" + formObjString;
+    })
+}
+`,
+reportcss: `
+.document {
+    align-self: center;
+    margin: 2rem auto 0 auto;
+    padding: 2rem 5rem 5rem 5rem;
+    max-width: 50rem;
+    color: var(--document-text);
+    background-color: var(--document-bg);
+    box-shadow: var(--shadow-big)
+
+}
+
+.document * {
+    color: var(--document-text)
+}
+
+.document > .figures {
+    display: inline-flex;
+    width: 100%;
+    margin: 0px auto;
+    justify-content: center;
+}
+
+.document > .figures > figure{
+    display: grid;
+    width: fit-content;
+    flex: 1;
+}
+
+.document > .figures > figure > img {
+    margin: 0px auto auto auto;
+    width: min(40rem, 100%);
+}
+
+.document > .figures > figure > figcaption {
+    text-align: center;
+    margin-top: 0.8rem;
+}
+`,
+snippet: `
+function addCodeSnippets() {
+    const elements = document.querySelectorAll('.code-snip');
+    elements.forEach(element => {
+        const textNode = element.firstChild
+        const TextContentArray = textNode.textContent.split(" ")
+
+        const language = TextContentArray[0]
+        const snippetName = TextContentArray[1]
+
+        if (TextContentArray.length != 2) {
+            textNode.textContent = "Error, Invalid text node (this should never happen)"
+            return
+        }
+
+        // Create and add language label before the code element
+        const languageElement = document.createElement("div");
+        languageElement.classList.add('language')
+        const languageContent = document.createTextNode(language);
+        languageElement.appendChild(languageContent);
+
+        element.parentElement.insertBefore(languageElement, element);
+
+        // Get snippet
+        snippet = codeSnippets[snippetName]
+        if (snippet == null) {
+            console.log(snippetName);
+            textNode.textContent = "Error, snippet not found (this should never happen)"
+            return
+        }
+
+        // Remove text in the code element that's there already
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+
+        // Split the snippet into lines
+        const lines = snippet.split("\\n")
+
+        lines.forEach(line => {
+            const newElement = document.createElement("span");
+            const newContent = document.createTextNode(line);
+
+            newElement.appendChild(newContent);
+
+            element.appendChild(newElement);
+        })
+
+    });
+}
 `
 }
 const projectOrder = [
@@ -59,7 +254,7 @@ const projects = {
         color: "#83b0fb",
         textIsDark: true,
         date: "2026-02-04",
-        previewDescription: "This site",
+        previewDescription: "This website, made using mainly CSS & HTML, with some JavaScript",
         languages: ["html5", "css", "javascript"],
         show: true
     },
@@ -68,7 +263,7 @@ const projects = {
         color: "#00028d",
         textIsDark: false,
         date: "2026-02-04",
-        previewDescription: "Not done yet (future)",
+        previewDescription: "A Pac-man style game made using web technologies, barely started yet.",
         languages: ["javascript"],
         show: true
     },
@@ -86,7 +281,7 @@ const projects = {
         color: "#00588b",
         textIsDark: false,
         date: "2026-02-04",
-        previewDescription: "A Customtk program that uses yt-dlp and some other python libraries to download albums and organise them into folders",
+        previewDescription: "A Customtk program that uses yt-dlp and some other python libraries to download albums and organise them into folders.",
         languages: ["python", "customtk"],
         show: true
     },
@@ -95,9 +290,9 @@ const projects = {
         color: "#a84300",
         textIsDark: false,
         date: "2026-02-04",
-        previewDescription: "Minecraft plugin for the Create mod, adding distillation and REMEMBER OTHER MECHANIC. Not even started.",
+        previewDescription: "Planned Minecraft addon for the Create mod, adding distillation and electrolysation. Not even started, may return to it eventually.",
         languages: ["java", "gradle", "minecraft"],
-        show: false
+        show: true
     },
     autetris: {
         displayName: "AuTetris",
@@ -110,10 +305,10 @@ const projects = {
     },
     quartered: {
         displayName: "Quartered",
-        color: "#517dbe",
+        color: "#ff00f260",
         textIsDark: false,
         date: "2026-02-04",
-        previewDescription: "Card game in godot engine, unfinished",
+        previewDescription: "A card game in the godot engine with planned client/server connectivity, unfinished.",
         languages: ["godot"],
         show: true
     },
@@ -122,7 +317,7 @@ const projects = {
         color: "#ffd9a1",
         textIsDark: true,
         date: "2026-02-04",
-        previewDescription: "A level compsci project",
+        previewDescription: "A level compsci project, tech demo for a game, made in Godot Engine.",
         languages: ["godot"],
         show: true
     }
@@ -268,7 +463,7 @@ function addCodeSnippets() {
     const elements = document.querySelectorAll('.code-snip');
     elements.forEach(element => {
         const textNode = element.firstChild
-        const TextContentArray = textNode.textContent.split(" ") //getAttribute("snippet-name")
+        const TextContentArray = textNode.textContent.split(" ")
 
         const language = TextContentArray[0]
         const snippetName = TextContentArray[1]
@@ -278,6 +473,7 @@ function addCodeSnippets() {
             return
         }
 
+        // Create and add language label before the code element
         const languageElement = document.createElement("div");
         languageElement.classList.add('language')
         const languageContent = document.createTextNode(language);
@@ -285,9 +481,8 @@ function addCodeSnippets() {
 
         element.parentElement.insertBefore(languageElement, element);
 
-
+        // Get snippet
         snippet = codeSnippets[snippetName]
-
         if (snippet == null) {
             console.log(snippetName);
             textNode.textContent = "Error, snippet not found (this should never happen)"
@@ -317,15 +512,16 @@ function addCodeSnippets() {
 function linkForm() {
     const form = document.getElementById("contact-form")
     form.addEventListener("submit", function (e) {
-        e.preventDefault()
+        e.preventDefault() // Block default action of the form 
         const formObject = Object.fromEntries(new FormData(form));
-        console.log(formObject)
 
+        // Create a string of all form options
         let formObjString = ""
         for(var key in formObject){
             formObjString += key + ": " + formObject[key] + "%0D%0A";
         }
         
+        // Open mail client
         window.location.href = "mailto:conneljmh@hotmail.com?subject=Response to contact form - "+ Date.now() +"&body=" + formObjString;
     })
 }

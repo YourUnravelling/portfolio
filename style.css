@@ -587,6 +587,10 @@ main > h1, .vertical-big-heading {
     color: var(--code-text);
 }
 
+.document code.small span {
+    font-size: small;
+}
+
 .document .language {
     color: var(--document-bg);
     padding: 1px 0.9em 1px 0.9em;
@@ -597,6 +601,13 @@ main > h1, .vertical-big-heading {
     clip-path: polygon(var(--p) 0,calc(100% - var(--p)) 0,100% 100%,0 100%);
 }
 /* https://css-shape.com/trapezoid/ */
+
+/*.document > h1,
+.document > h2,
+.document > h3,
+.document > h4 {
+    margin-left: 0rem;
+}*/
 
 .document > h1 {
     font-size: 4rem;
@@ -613,6 +624,15 @@ main > h1, .vertical-big-heading {
 
 .document > h4 {
     font-size: 1.5em;
+}
+
+.red {
+    color: #f00;
+    text-align: center;
+}
+
+.less-low-margin {
+    margin-bottom: 0;
 }
 
 /* VIDEO PAGE*/
