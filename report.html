@@ -25,8 +25,7 @@
             <p>This section includes the header, footer, and all other aspects of the site that are the same accross multiple pages</p>
 
 
-            <p>I moved the header bar out of the grid to allow it to use fixed and follow the screen, and used JS to create a nice shadow to stop it from blending with other white elements</p>
-            <p>The header bar also autopopulates to stop me from reusing the code on every page.</p>
+            <p>I moved the header bar out of the grid to allow it to use fixed and follow the screen, and used JS to create a nice shadow to stop it from blending with other white elements. The header and footer bars also autopopulates to stop me from reusing the code on every page.</p>
 
             <p>Dark mode is implemented with variables in the body stylesheet, with javascript applying a class to body with a script</p>
 
@@ -46,7 +45,7 @@
                 </figure>
                 <figure>
                     <img src="resources/report/finished-mobile-nav.png" alt="An image showing the mobile menu">
-                    <figcaption>Here's the finished mobile menu</figcaption>
+                    <figcaption>Here's the finished mobile menu, I didn't get around to adding links in the menu</figcaption>
                 </figure>
             </div>
             <h3>Projects page</h3>
@@ -88,7 +87,7 @@
             <code class="code-snip small">JavaScript mailto</code>
 
             <h3>Report page</h3>
-            <p>The report uses lots of css to create the document styling, with a not-fully black colour in dark mode to be easier on the eyes, and to match word closer</p>
+            <p>The report uses lots of css to create the document styling, with a not-fully black colour in dark mode to be easier on the eyes, and to match word more closely.</p>
             <code class="code-snip small">CSS reportcss</code>
 
             <p>The code snippets in this document are autopopulated with span elements, by using the content of the element as lanugage and identifier of the code snippet.</p>
@@ -98,12 +97,18 @@
 
 
             <h3>Main page</h3>
-            <p>I rushed the main page in the last few days of the assignment because I had no idea what to put there</p>
+            <p>I rushed the main page in the last few days of the assignment because I had no idea what to put there. I ended up adding a profile photo, a preview of my current active project, made by adding a condition to the normal projects-grid to only display one project if the content of the element is the identifier.</p>
+            <p>I also added a css-only ticker showing technologies I know, using an animation with a currently hardcoded value. It uses em instead of my usually preferred rem so it can be resized easier</p>
+
+            <code class="code-snip small">CSS ticker</code>
 
             <h2>Reflection</h2>
             <p>HTML fustrated me due to its large amounts of redundant code when working on multiple pages. In an ideal world, a parent file could be created which contained the header, background, footer, and other consistant elements, and child/instance pages would simpily add elements to the body tag. I'm sure some framework like this exists, and I'll probably research and use one like it next time I have a project with more freedom to. On the other hand, css is a very nice language to work with, as it's clearly made with deduplication in mind.</p>
 
+            <p>Working with git branches has felt a little pointless, as I ususally end up altering multiple features in single commits. I imagine they're more useful when working on a larger project and/or in a group</p>
+
             <p>Working on the report has been a bit more annoying in html than it would've in markdown or word, I think because the headings don't stand out, though I do prefer the amount of control and usaility on my Linux laptop. In the future I could use LaTeX or markdown (I could possibly create a custom 'autumn flavoured' markdown with a few features like groups of images with captions that I find annoyingly missing from the normal version).</p>
+
             <p>Like my other projects, this one too involved a slight crunch at the end, though less than others. This is likely due to me putting less work into this project than others, as well as the project being so closely tied to my identity that I ended up disliking many aspects of it by the end.</p>
 
             <h2>Validation proofs</h2>

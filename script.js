@@ -226,6 +226,48 @@ function addCodeSnippets() {
 
     });
 }
+`,
+ticker: `
+.skills-ticker {
+    margin: 2rem;
+    font-size: 2rem;
+    width: 20em;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+    mask-image: linear-gradient(to left, transparent, white 10%, white 90%, transparent);
+}
+.skills-ticker > .scrollee {
+    display: flex;
+    position: relative;
+    left: 0px;
+    animation: langs-progress 10s linear infinite;
+}
+.skills-ticker > .scrollee > div {
+    display: flex;
+    mix-blend-mode: hard-light;
+    color: #a5c0c1;
+}
+
+.skills-ticker > .scrollee > div > div {
+    margin: 0 1em;
+}
+.skills-ticker > .scrollee > div > .gd {color: #0084ff}
+.skills-ticker > .scrollee > div > .js {color: #F0DB4F}
+.skills-ticker > .scrollee > div > .py {color: #FFD94A}
+.skills-ticker > .scrollee > div > .ht {color: #003cff}
+.skills-ticker > .scrollee > div > .cs {color: #fa6400}
+.skills-ticker > .scrollee > div > .sq {color: #d6d6d6}
+.skills-ticker > .scrollee > div > .tk {color: #b2edff}
+
+@keyframes langs-progress {
+    0% {
+        left: 0px
+    }
+    100% {
+        left: -37.4em
+    }
+}
 `
 }
 const projectOrder = [
