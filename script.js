@@ -415,7 +415,7 @@ function populateProjectsGrid() {
                     thisProject = projects[projectName]
 
                     
-                    if (thisProject.show == true && (spesificProject == projectName || spesificProject == "")) {
+                    if (thisProject.show == true && (spesificProject == projectName || spesificProject.length > 20)) {
                         console.log(thisProject, index)
                         element.innerHTML += projectSummaryTemplateText;
                         
