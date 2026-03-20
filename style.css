@@ -133,6 +133,7 @@ body {
     --code-text:     #303030;
     --code-hilight:  #e6e6e6;
     --light-grey:    #dadada;
+    --lighter-grey:  #eaeaea;
     --darker-grey:   #9c9c9c;
     --document-bg:   #fff;
     --document-text: #000;
@@ -147,6 +148,7 @@ body.darkmode {
     --code-text:     #dadada;
     --code-hilight:  #585858;
     --light-grey:    #2b2b2b;
+    --lighter-grey:  #1d1d1d;
     --darker-grey:   #707070;
     --document-bg:   #222222;
     --document-text: #fff;
@@ -862,7 +864,7 @@ article > h2 {
 .skills-ticker > .scrollee > div > .js {color: #F0DB4F}
 .skills-ticker > .scrollee > div > .py {color: #FFD94A}
 .skills-ticker > .scrollee > div > .ht {color: #003cff}
-.skills-ticker > .scrollee > div > .cs {color: #003cff}
+.skills-ticker > .scrollee > div > .cs {color: #fa6400}
 .skills-ticker > .scrollee > div > .sq {color: #d6d6d6}
 .skills-ticker > .scrollee > div > .tk {color: #b2edff}
 
@@ -931,6 +933,12 @@ article > h2 {
     }
     .header-bar > nav > a {
         border-radius: 0 2rem 2rem 0 ;
+    }
+    .header-bar > nav > a:nth-child(2n-1) {
+        background-color: var(--lighter-grey);
+    }
+    .header-bar > nav > a:nth-child(2n -1):hover {
+        background-color: var(--light-grey);
     }
     .desktop-darkmode-icon {
         display: none;
