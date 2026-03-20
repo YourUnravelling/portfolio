@@ -584,6 +584,7 @@ main > h1, .vertical-big-heading {
     padding: 5px;
     border: 2px solid var(--code-colour);
     border-left: 5px solid var(--code-colour);
+    overflow: scroll;
     transition: background-color 0.5s;
 }
 .document code:hover {
