@@ -424,6 +424,13 @@ main > h1, .vertical-big-heading {
     padding: 1rem 2rem;
 }
 
+.centered {
+    display: flex;
+    margin-left:  auto !important;
+    margin-right: auto !important;
+    justify-content: center;
+}
+
 
 /* PROJECTS PAGE */
 
@@ -794,6 +801,12 @@ article > h2 {
     font-size: 2rem;
 }
 
+.main-pad {
+    user-select: text;
+    pointer-events: auto;
+    transition: font-size 0.2s ease-out;
+}
+
 .project-summary.home {
     background-color: #00028daa;
 }
@@ -810,6 +823,15 @@ article > h2 {
     background-image: var(--i);
     mask-image: linear-gradient(to top, transparent, white);
     background-size: cover;
+}
+
+.pfp {
+    display: flex;
+    margin-top: 3rem;
+    clip-path: circle();
+    overflow: hidden;
+    max-width: 400px;
+    transition: all 0.2s ease-out; /*Broken*/
 }
 
 .skills-ticker {
@@ -917,6 +939,18 @@ article > h2 {
         display: grid;
     }
 
+}
+
+@media only screen and (max-width: 580px) {
+    .pfp {max-width: 300px;}
+    .main-pad {font-size: 4rem}
+    .skills-ticker {width: 100%;}
+    
+}
+@media only screen and (max-width: 450px) {
+    .pfp {width: 300px;}
+    .main-pad {font-size: 3rem;}
+    
 }
 
 @media only screen and (max-width: 550px) {

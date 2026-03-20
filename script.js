@@ -404,6 +404,9 @@ function populateProjectsGrid() {
             const elements = document.querySelectorAll('.projects-grid');
             console.log(elements)
             elements.forEach(element => {
+                const spesificProject = element.innerHTML
+                console.log(spesificProject)
+
                 // Remove all innerhtml
                 element.innerHTML = ""
                 
@@ -412,7 +415,7 @@ function populateProjectsGrid() {
                     thisProject = projects[projectName]
 
                     
-                    if (thisProject.show == true) {
+                    if (thisProject.show == true && (spesificProject == projectName || spesificProject == "")) {
                         console.log(thisProject, index)
                         element.innerHTML += projectSummaryTemplateText;
                         
