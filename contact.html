@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="resources/favicon.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="background pastel-background-animated"></div>
+    <header id="heading-root">
+        <div class="no-js-warning">
+            This site uses javascript to allow reuse of header and footer elements, please either enable it, or view the site through a live server.
+        </div>
+    </header>
+
+    <main>
+        <h1>Links</h1>
+        <div class="links-grid">
+            <a title="Github"   class="github"   href="https://github.com/YourUnravelling"                          ><img src="resources/socials/github.svg"   alt="Github Logo"></a>
+            <a title="LinkedIn" class="linkedin" href="https://www.linkedin.com/in/autumn-hickinbotham-696a93394/"  ><img src="resources/socials/linkedin.svg" alt="Linkedin Logo"></a>
+            <a title="Email"    class="email"    href="mailto:conneljmh@hotmail.com"                                ><img src="resources/socials/email.svg"    alt="Email Logo"></a>
+        <!--    <a title="Matrix"   class="matrix"   href="mailto:conneljmh@hotmail.com"                                ><img src="resources/socials/email.svg"    alt="Matrix Logo"></a>
+        -->
+        </div>
+        <h1>Contact</h1>        
+        <div class="panel">
+            <form id="contact-form" class="contact-grid" action="mailto:conneljmh@hotmail.com" method="get" enctype="application/x-www-form-urlencoded">
+
+                <label class="type-desc" for="communicationType">Communication type</label>
+                <select class="type" name="communicationType" id="communicationType">
+                    <option value="0">Idea</option>
+                    <option value="1">Praise</option>
+                    <option value="2">Complaint</option>
+                    <option value="3">Legal threat</option>
+                </select>
+
+                <textarea class="message" name="message" placeholder="Message"></textarea>
+
+                <label class="email-desc" for="email">Email</label>
+                <input class="email" name="email" id="email" type="email" required>
+
+                <div class="hivel-cont">
+                    <div>
+                        <input class="hivel" type="checkbox" id="high-velocity" name="high-velocity"> 
+                    </div>
+                    <label class="hivel-desc" for="high-velocity">High velocity (message will be sent at high velocity and may hurt Autumn when it hits her)</label>
+                </div>
+                
+                <div class="submit">
+                    <input  type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+
+    </main>
+    <footer id="footer-root">
+        <div class="footer-bar"></div>
+        <div class="footer-bg"></div>
+    </footer>
+</body>
+</html>

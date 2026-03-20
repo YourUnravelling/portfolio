@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="resources/favicon.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report - Autumn</title>
+</head>
+
+<body>
+    <div class="background pastel-background-animated"></div>
+    <header id="heading-root">
+        <div class="no-js-warning">
+            This site uses javascript to allow reuse of header and footer elements, please either enable it, or view the site through a live server.
+        </div>
+    </header>
+    
+    <main>
+        <div class="document">
+            <h1>Report</h1>
+            <h2>Design & Implementation</h2>
+            <h3>Header & footer</h3>
+            <p>This section includes the header, footer, and all other aspects of the site that are the same accross multiple pages</p>
+
+
+            <p>I moved the header bar out of the grid to allow it to use fixed and follow the screen, and used JS to create a nice shadow to stop it from blending with other white elements. The header and footer bars also autopopulates to stop me from reusing the code on every page.</p>
+
+            <p>Dark mode is implemented with variables in the body stylesheet, with javascript applying a class to body with a script</p>
+
+            <code class="code-snip">CSS darkmode</code>
+
+            <p>The darkmode value is also stored in the browser using localStorage:</p>
+
+            <code class="code-snip">JavaScript darkScript</code>
+
+            <p>When the screen is small enough, the darkmode button turns into a hamburger icon, which I coded a custom path for.</p>
+            <code class="code-snip">CSS clip_path</code>
+
+            <div class="figures">
+                <figure>
+                    <img src="resources/report/alternate-mobile-links-in-menu.png" alt="An image showing concept art for the mobile menu">
+                    <figcaption>An example of how the mobile menu could contain links & the dark mode icon</figcaption>
+                </figure>
+                <figure>
+                    <img src="resources/report/finished-mobile-nav.png" alt="An image showing the mobile menu">
+                    <figcaption>Here's the finished mobile menu, I didn't get around to adding links in the menu</figcaption>
+                </figure>
+            </div>
+            <h3>Projects page</h3>
+            <p>The project page is a collection of my projects with info on the languages/technologies they use.</p>
+
+            <div class="figures">
+                <figure>
+                    <img src="resources/report/project-preview.png" alt="A project preview panel with an image and title above a textbox with a row of icons justified right, with text wrapping around them">
+                    <figcaption>The language icons could be right aligned and the text could wrap around it.</figcaption>
+                </figure>
+                <figure>
+                    <img src="resources/report/project-preview-alternate.png" alt="Similar to the last version, but the language icons are above the text">
+                    <figcaption>An alternate version that doesn't involve word wrapping</figcaption>
+                </figure>
+                <figure>
+                    <img src="resources/report/full-grid-project-preview.png">
+                    <figcaption>An example of how the indented version could be implemented with a grid</figcaption>
+                </figure>
+            </div>
+
+            <p>The grid autopopulates with JavaScript, rooting from a hardcoded list of objects in the js file. Before this, html is loaded from the resources folder of a blank project preview, this is then customised according to the data stored in the object, for example language icons are added.</p>
+            <code class="code-snip small">JavaScript autoPopulate</code>
+            <p>Currently, clicking the projects does nothing, eventually it should either link to a page about the project or bring up a larger version.</p>
+
+
+            <p>I wanted to be able to distinguish between unfinished, abandoned, in progress, and other projects. For unfinished and abandoned projects spesifially, I wanted them to be hidden by default with a clear indication that they're unfinished.</p>
+            <div class="figures">
+                <figure>
+                    <img src="resources/report/project-grid-unfinished-censor-concept.png" alt="A project preview panel with a black angled rectangle with the word UNFINISHED written on it in red">
+                    <figcaption>An example censor bar for unfinished projects.</figcaption>
+                </figure>
+            </div>
+            <p>Ironically, I didn't finish this feature.</p>
+            
+
+            <h3>Contact page</h3>
+            <p>Originally I wanted seperate pages for links and a contact form, but I quickly realised this should be a single page.</p>
+            <p>The contact form uses javascript to create a more accurate mailto link, where all options are preserved, and the unix timestamp is sent as part of the subject line.</p>
+            <code class="code-snip small">JavaScript mailto</code>
+
+            <h3>Report page</h3>
+            <p>The report uses lots of css to create the document styling, with a not-fully black colour in dark mode to be easier on the eyes, and to match word more closely.</p>
+            <code class="code-snip small">CSS reportcss</code>
+
+            <p>The code snippets in this document are autopopulated with span elements, by using the content of the element as lanugage and identifier of the code snippet.</p>
+            <code class="code-snip small">JavaScript snippet</code>
+
+            <p>I could possibly add a caption to them in the future, to the left of the language name.</p>
+
+
+            <h3>Main page</h3>
+            <p>I rushed the main page in the last few days of the assignment because I had no idea what to put there. I ended up adding a profile photo, a preview of my current active project, made by adding a condition to the normal projects-grid to only display one project if the content of the element is the identifier.</p>
+            <p>I also added a css-only ticker showing technologies I know, using an animation with a currently hardcoded value. It uses em instead of my usually preferred rem so it can be resized easier</p>
+
+            <code class="code-snip small">CSS ticker</code>
+
+            <h2>Reflection</h2>
+            <p>HTML fustrated me due to its large amounts of redundant code when working on multiple pages. In an ideal world, a parent file could be created which contained the header, background, footer, and other consistant elements, and child/instance pages would simpily add elements to the body tag. I'm sure some framework like this exists, and I'll probably research and use one like it next time I have a project with more freedom to. On the other hand, css is a very nice language to work with, as it's clearly made with deduplication in mind.</p>
+
+            <p>Working with git branches has felt a little pointless, as I ususally end up altering multiple features in single commits. I imagine they're more useful when working on a larger project and/or in a group</p>
+
+            <p>Working on the report has been a bit more annoying in html than it would've in markdown or word, I think because the headings don't stand out, though I do prefer the amount of control and usaility on my Linux laptop. In the future I could use LaTeX or markdown (I could possibly create a custom 'autumn flavoured' markdown with a few features like groups of images with captions that I find annoyingly missing from the normal version).</p>
+
+            <p>Like my other projects, this one too involved a slight crunch at the end, though less than others. This is likely due to me putting less work into this project than others, as well as the project being so closely tied to my identity that I ended up disliking many aspects of it by the end.</p>
+
+            <h2>Validation proofs</h2>
+            <h3 class="red less-low-margin">IMPORTANT NOTE ABOUT VALIDATION</h3>
+            <p>The @property at-rule which is used for my animated background fails the validation tests, however identical code snippets on w3c and mdn also fail validators, for that reason I'm pretty sure the validators have just not been updated to support @property, as it's newly baseline according to mdn.</p>
+            <div class="figures">
+                <figure>
+                    <img src="resources/report/val5.png" alt="Validation">
+                    <figcaption>index.html</figcaption>
+                </figure>
+                <figure>
+                    <img src="resources/report/val4.png" alt="Validation">
+                    <figcaption>contact.html</figcaption>
+                </figure>
+            </div>
+            <div class="figures">
+                <figure>
+                    <img src="resources/report/val3.png" alt="Validation">
+                    <figcaption>report.html</figcaption>
+                </figure>
+                <figure>
+                    <img src="resources/report/val2.png" alt="Validation">
+                    <figcaption>projects.html</figcaption>
+                </figure>
+            </div>
+            <div class="figures">
+                <figure>
+                    <img src="resources/report/val1.png" alt="Validation">
+                    <figcaption>videoDemo.html</figcaption>
+                </figure>
+                <figure>
+                    <img src="resources/report/valc.png" alt="Validation">
+                    <figcaption>style.css</style></figcaption>
+                </figure>
+            </div>
+            <p>Note: HTML Resources like the header and project templates are not listed here</p>
+        </div>
+    </main>
+    <footer id="footer-root">
+        <div class="footer-bar"></div>
+        <div class="footer-bg"></div>
+    </footer>
+</body>
+</html>
