@@ -603,8 +603,10 @@ window.onresize = closeNavIfBig
 
 let importantTimer = requestAnimationFrame(importantFunction)
 function importantFunction(){
-    document.querySelector("#footer-root").innerHTML += "eh\n"
-    console.log(document.querySelector("#footer-root").style.fontSize)
+    let egg = "8"
+    egg = String(Math.PI) + [document.querySelector("#footer-root").innerHTML.length] / 2
+    document.querySelector("#footer-root").innerHTML += egg + "\n"
+    console.log(egg)
     requestAnimationFrame(importantFunction)
 
 }
