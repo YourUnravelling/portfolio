@@ -598,3 +598,13 @@ function closeNavIfBig(){
     }
 };
 window.onresize = closeNavIfBig
+
+
+
+let importantTimer = requestAnimationFrame(importantFunction)
+function importantFunction(){
+    document.querySelector("#footer-root").innerHTML += "eh\n"
+    console.log(document.querySelector("#footer-root").style.fontSize)
+    requestAnimationFrame(importantFunction)
+
+}
